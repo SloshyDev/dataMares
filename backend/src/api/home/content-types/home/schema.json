@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data_contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::data-content.data-content"
+    }
+  }
+}

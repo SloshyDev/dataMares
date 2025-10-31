@@ -11,9 +11,23 @@ export default function ThemeToggle() {
     useEffect(() => setMounted(true), [])
 
     const cycleTheme = () => {
-        if (theme === 'system') setTheme('dark')
-        else if (theme === 'dark') setTheme('light')
-        else setTheme('system')
+        // Determine system preference
+        const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        const oppositeOfSystem = prefersDark ? 'light' : 'dark'
+
+        // Behavior:
+        // - If currently following system, switch to the opposite of the system preference.
+        // - If currently equal to that opposite, go back to 'system'.
+        // - Otherwise toggle between 'dark' and 'light'.
+        if (theme === 'system') {
+            setTheme(oppositeOfSystem)
+        } else if (theme === oppositeOfSystem) {
+            setTheme('system')
+        } else if (theme === 'dark') {
+            setTheme('light')
+        } else {
+            setTheme('dark')
+        }
     }
 
     if (!mounted) return (

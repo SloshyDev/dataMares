@@ -10,7 +10,7 @@ export default function SubMenu({ label, items }) {
     return (
         <li className="relative">
             <button
-                className="px-4 py-2 hover:bg-gray-200 hover:text-[#265852] rounded w-full text-left whitespace-nowrap flex items-center"
+                className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-zinc-700 hover:text-[#265852] dark:hover:text-gray-50 rounded w-full text-left whitespace-nowrap flex items-center"
                 onMouseEnter={() => setOpen(true)}
                 onMouseLeave={() => { setOpen(false); setOpenSubSubMenu(null); }}
             >
@@ -19,7 +19,7 @@ export default function SubMenu({ label, items }) {
             </button>
             {open && (
                 <ul
-                    className="absolute left-0 top-full bg-gray-100 dark:bg-gray-800 shadow-lg min-w-40 z-20"
+                    className="absolute left-0 top-full bg-gray-100 dark:bg-zinc-800 rounded-lg shadow-lg min-w-40 z-20"
                     onMouseEnter={() => setOpen(true)}
                     onMouseLeave={() => { setOpen(false); setOpenSubSubMenu(null); }}
                 >
@@ -28,7 +28,7 @@ export default function SubMenu({ label, items }) {
                             {item.subSubMenu ? (
                                 <>
                                     <button
-                                        className="w-full text-left px-4 py-2 hover:bg-blue-100 whitespace-nowrap flex items-center"
+                                        className="w-full text-left px-4 py-2 hover:bg-blue-100 hover:dark:bg-zinc-700 whitespace-nowrap flex items-center"
                                         onMouseEnter={() => setOpenSubSubMenu(item.label)}
                                         onMouseLeave={() => setOpenSubSubMenu(null)}
                                     >
@@ -37,7 +37,7 @@ export default function SubMenu({ label, items }) {
                                     </button>
                                     {openSubSubMenu === item.label && (
                                         <ul
-                                            className="absolute left-full top-0 bg-gray-100 dark:bg-gray-800 rounded shadow-lg min-w-[320px] z-30 flex flex-col"
+                                            className="absolute left-full top-0 bg-gray-100 dark:bg-zinc-800 rounded shadow-lg min-w-[320px] z-30 flex flex-col"
                                             onMouseEnter={() => setOpenSubSubMenu(item.label)}
                                             onMouseLeave={() => setOpenSubSubMenu(null)}
                                         >

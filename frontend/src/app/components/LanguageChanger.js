@@ -1,9 +1,10 @@
-'use client';
 
+'use client';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import i18nConfig from '../../../i18nConfig';
+import Image from 'next/image';
 
 export default function LanguageChanger() {
     const { i18n } = useTranslation();
@@ -11,17 +12,20 @@ export default function LanguageChanger() {
     const router = useRouter();
     const currentPathname = usePathname();
 
-    const handleChange = e => {
-        const newLocale = e.target.value;
+    const otherLocale = currentLocale === 'es' ? 'en' : 'es';
+    const flagSrc = otherLocale === 'es'
+        ? '/Flags/flag_es.svg'
+        : '/Flags/flag_en.svg';
+    const flagAlt = otherLocale === 'es' ? 'Español' : 'English';
 
-        // set cookie for next-i18n-router
+    const handleClick = () => {
+        const newLocale = otherLocale;
         const days = 30;
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         const expires = date.toUTCString();
         document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
-        // redirect to the new locale path
         if (
             currentLocale === i18nConfig.defaultLocale &&
             !i18nConfig.prefixDefault
@@ -32,14 +36,12 @@ export default function LanguageChanger() {
                 currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
             );
         }
-
         router.refresh();
     };
 
     return (
-        <select onChange={handleChange} value={currentLocale}>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-        </select>
+        <button onClick={handleClick} title={flagAlt} className="rounded-full block p-1 hover:scale-110 transition">
+            <Image src={flagSrc} alt={flagAlt} width={40} height={40} className='w-8 h-8' />
+        </button>
     );
 }

@@ -5,7 +5,7 @@ import MenuItem from './MenuItem';
 
 export default function DesktopMenu({ menuData }) {
     return (
-        <ul className="hidden lg:flex gap-8">
+        <ul className="hidden lg:flex ">
             {menuData.map((menu) => (
                 menu.items ? (
                     <SubMenu key={menu.label} label={menu.label} items={menu.items} />

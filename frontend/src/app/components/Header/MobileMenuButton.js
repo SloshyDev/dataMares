@@ -6,7 +6,7 @@ export default function MobileMenuButton({ isMenuOpen, onClick }) {
     return (
         <button
             onClick={onClick}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+            className="lg:hidden absolute w-10 h-10 flex items-center justify-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
             aria-label="Toggle menu"
         >
             {isMenuOpen ? (

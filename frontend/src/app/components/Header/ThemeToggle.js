@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     }
 
     if (!mounted) return (
-        <div className="w-10 h-10 rounded-full bg-zinc-300 dark:bg-zinc-700 animate-pulse" />
+        <div className="w-8 h-8 rounded-full bg-zinc-300 dark:bg-zinc-700 animate-pulse" />
     )
 
     const getIcon = () => {
@@ -31,7 +31,7 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={cycleTheme}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#265852] dark:bg-[#1e7571] hover:bg-[#1e7571] dark:hover:bg-[#265852] hover:scale-105 transition-all duration-200 shadow-sm"
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-[#265852] dark:bg-[#265852] hover:bg-[#1e7571] dark:hover:bg-[#1e7571] hover:scale-105 transition-all duration-200 shadow-sm"
             aria-label={`Current theme: ${label}. Click to cycle`}
             title={`Current: ${label}`}
         >

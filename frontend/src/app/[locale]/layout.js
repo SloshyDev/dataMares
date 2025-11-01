@@ -5,6 +5,7 @@ import TranslationsProvider from "../components/TranslationsProvides";
 import initTranslations from "../i18n";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
+import Footer from "../components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,15 +31,18 @@ export default async function RootLayout({ children, params }) {
     notFound();
   }
 
-  const { resources } = await initTranslations(locale, ["header", "not-found"]);
+  const { resources } = await initTranslations(locale, ["header", "not-found", "footer"]);
 
   return (
     <html suppressHydrationWarning lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TranslationsProvider resources={resources} locale={locale} namespaces={["header", "not-found"]}>
-            <Header />
-            {children}
+            <section className="min-h-screen flex flex-col justify-between">
+              <Header />
+              {children}
+              <Footer />
+            </section>
           </TranslationsProvider>
         </ThemeProvider>
       </body>

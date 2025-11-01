@@ -10,7 +10,7 @@ export default function SubMenu({ label, items }) {
     return (
         <li className="relative">
             <button
-                className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-zinc-700 hover:text-[#265852] dark:hover:text-gray-50 rounded w-full text-left whitespace-nowrap flex items-center"
+                className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-zinc-700 hover:text-[#265852] text-gray-800 dark:text-gray-200 rounded w-full text-left whitespace-nowrap flex items-center"
                 onMouseEnter={() => setOpen(true)}
                 onMouseLeave={() => { setOpen(false); setOpenSubSubMenu(null); }}
             >
@@ -28,7 +28,7 @@ export default function SubMenu({ label, items }) {
                             {item.subSubMenu ? (
                                 <>
                                     <button
-                                        className="w-full text-left px-4 py-2 hover:bg-blue-100 hover:dark:bg-zinc-700 whitespace-nowrap flex items-center"
+                                        className="w-full text-left px-4 py-2 hover:bg-gray-200 hover:dark:bg-zinc-700 hover:text-[#265852] text-gray-800 dark:text-gray-200 whitespace-nowrap flex items-center"
                                         onMouseEnter={() => setOpenSubSubMenu(item.label)}
                                         onMouseLeave={() => setOpenSubSubMenu(null)}
                                     >

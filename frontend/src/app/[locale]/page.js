@@ -11,7 +11,7 @@ export default async function Home({ params }) {
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
 
-      <main className='min-h-screen flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-900'>
+      <main className=''>
         {/* <h1>{t('home_title')}</h1>
         <ExampleClientComponent />
         <LanguageChanger /> */}

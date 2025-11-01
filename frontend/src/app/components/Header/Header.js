@@ -9,6 +9,7 @@ import { useMobileMenuNavigation } from './useMobileMenuNavigation';
 import DmFullLogo from '@/assets/logos/dm_full';
 import DmMinLogo from '@/assets/logos/dm_min';
 import NavIcons from './NavIcons';
+import Link from 'next/link';
 
 export default function Header() {
     const menuData = useMenuData();
@@ -27,12 +28,14 @@ export default function Header() {
             <nav className="w-full px-4 py-2 flex justify-between items-center">
                 <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />
                 <div className="flex items-center w-full lg:w-auto justify-center lg:justify-start gap-4">
-                    <span className="block lg:block xl:hidden 2xl:block h-8 w-auto">
-                        <DmFullLogo className="h-8 w-auto" />
-                    </span>
-                    <span className="hidden lg:hidden xl:block 2xl:hidden h-8 w-auto">
-                        <DmMinLogo className="h-8 w-auto" />
-                    </span>
+                    <Link href="/" className="block">
+                        <span className="block lg:block xl:hidden 2xl:block h-8 w-auto">
+                            <DmFullLogo className="h-8 w-auto" />
+                        </span>
+                        <span className="hidden lg:hidden xl:block 2xl:hidden h-8 w-auto">
+                            <DmMinLogo className="h-8 w-auto" />
+                        </span>
+                    </Link>
                     <div className="block lg:hidden xl:block">
                         <DesktopMenu menuData={menuData} />
                     </div>

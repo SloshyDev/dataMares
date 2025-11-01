@@ -45,9 +45,9 @@ export default function MobileMenu({
                             ) : (
                                 <button
                                     onClick={() => handleMenuClick(menu)}
-                                    className="w-full flex items-center justify-between px-4 py-2 text-gray-800 hover:text-[#265852] dark:text-gray-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
+                                    className="w-full flex items-center justify-between px-4 py-2 text-gray-800 dark:text-gray-200 hover:text-[#265852] hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg"
                                 >
-                                    <span>{menu.label}</span>
+                                    <span className="text-gray-800 dark:text-gray-200">{menu.label}</span>
                                     {hasSubMenu && <ChevronRightIcon className="w-4 h-4" />}
                                 </button>
                             )}

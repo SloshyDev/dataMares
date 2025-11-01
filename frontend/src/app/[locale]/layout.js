@@ -23,8 +23,8 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
 
   const titles = {
-    en: "dataMares - Scientific Data Transparency",
-    es: "dataMares - Transparencia y Datos Científicos"
+    en: "dataMares - Work · Publish · Share",
+    es: "dataMares - Trabaja · Publica · Difunde"
   };
 
   const descriptions = {

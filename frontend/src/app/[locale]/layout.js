@@ -108,6 +108,35 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <html suppressHydrationWarning lang={locale}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "dataMares",
+              "url": `https://www.yokaicdmx.com/${locale}`,
+              "logo": "https://www.yokaicdmx.com/logo.svg",
+              "description": locale === 'en'
+                ? "dataMares promotes transparency and free access to data, bringing science closer to the public with graphic and interactive material."
+                : "dataMares promueve transparencia y acceso libre a datos, acercando la ciencia al público con material gráfico e interactivo.",
+              "sameAs": [
+                "https://facebook.com/datamares",
+                "https://instagram.com/datamares_/",
+                "https://x.com/datamares"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "contact@datamares.org",
+                "contactType": "customer service"
+              },
+              "foundingDate": "2024",
+              "knowsAbout": ["Scientific Data", "Data Transparency", "Data Visualization", "Research"]
+            })
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TranslationsProvider resources={resources} locale={locale} namespaces={["header", "not-found"]}>

@@ -49,7 +49,7 @@ export async function generateMetadata({ params }) {
       address: false,
       telephone: false,
     },
-    metadataBase: new URL('https://datamares.org'),
+    metadataBase: new URL('https://www.yokaicdmx.com'),
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }) {
       type: 'website',
       locale: locale === 'en' ? 'en_US' : 'es_ES',
       alternateLocale: locale === 'en' ? 'es_ES' : 'en_US',
-      url: `https://datamares.org/${locale}`,
+      url: `https://www.yokaicdmx.com/${locale}`,
       siteName: 'dataMares',
       title: titles[locale] || titles.es,
       description: descriptions[locale] || descriptions.es,

@@ -140,7 +140,7 @@ export default async function RootLayout({ children, params }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TranslationsProvider resources={resources} locale={locale} namespaces={["header", "not-found"]}>
-            <section className="min-h-screen flex flex-col justify-between">
+            <section className="min-h-screen flex flex-col justify-between mx-auto">
               <Header />
               {children}
               <Footer />

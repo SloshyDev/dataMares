@@ -15,6 +15,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::data-content.data-content"
+    },
+    "latest_news": {
+      "type": "component",
+      "component": "image-with-link.latest-news",
+      "repeatable": false
     }
   }
 }

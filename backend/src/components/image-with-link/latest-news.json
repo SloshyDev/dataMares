@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_image_with_link_latest_news",
+  "info": {
+    "displayName": "Latest News",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

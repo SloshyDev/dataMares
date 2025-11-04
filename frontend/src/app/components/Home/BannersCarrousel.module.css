@@ -37,8 +37,8 @@
     z-index: 10;
     border: none;
     border-radius: 50%;
-    width: 1.5vw;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,11 +50,11 @@
 
 
 .splide__arrow--prev {
-    left: 1vw;
+    left: 1rem;
 }
 
 .splide__arrow--next {
-    right: 1vw;
+    right: 1rem;
 }
 
 .splide__arrow:disabled {

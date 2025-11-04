@@ -550,6 +550,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::data-content.data-content'
     >;
+    latest_news: Schema.Attribute.Component<
+      'image-with-link.latest-news',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;

@@ -9,9 +9,6 @@ import Image from 'next/image';
 export default function BannersCarrousel({ contents, ...props }) {
     const splideRef = useRef(null);
 
-    console.log(contents);
-
-
     const handlePrev = () => {
         if (splideRef.current && splideRef.current.splide) {
             splideRef.current.splide.go('<');
@@ -31,19 +28,20 @@ export default function BannersCarrousel({ contents, ...props }) {
                 perPage: 1,
                 autoplay: true,
                 interval: 4000,
-                pagination: true,
+                pagination: false,
                 arrows: false,
                 pauseOnHover: true,
                 pauseOnFocus: true,
+                direction: 'top',
             }}
             ref={splideRef}
             {...props}
             hasTrack={false}
             aria-label="My Favorite Images">
             <SplideTrack>
-                {contents.map((content, index) => (
+                {(Array.isArray(contents) ? contents : []).map((content, index) => (
                     <SplideSlide key={content.documentId || index}>
-                        <Image className='w-full rounded-2xl' width={content.Banner.width} height={content.Banner.height} src={BASE_URL + content.Banner.url} alt={content.Title} unoptimized />
+                        <Image unoptimized className='w-full rounded-2xl' width={content.Banner.width} height={content.Banner.height} src={BASE_URL + content.Banner.url} alt={content.Title} />
                     </SplideSlide>
                 ))}
             </SplideTrack>

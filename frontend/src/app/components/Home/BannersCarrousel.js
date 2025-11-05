@@ -33,6 +33,12 @@ export default function BannersCarrousel({ contents, ...props }) {
                 pauseOnHover: true,
                 pauseOnFocus: true,
                 direction: 'top',
+                breakpoints: {
+                    768: {
+                        pagination: true,
+                    },
+                }
+
             }}
             ref={splideRef}
             {...props}
@@ -45,7 +51,7 @@ export default function BannersCarrousel({ contents, ...props }) {
                     </SplideSlide>
                 ))}
             </SplideTrack>
-            <div className={styles.splide__arrows}>
+            <div className={`${styles.splide__arrows} hidden md:block`}>
                 <button className={`${styles.splide__arrow} group ${styles['splide__arrow--prev']}`} onClick={handlePrev}>
                     <svg className='w-12 h-12 group-hover:stroke-[#1e7571] stroke-white transition-all duration-300 hover:scale-125' viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.6758 1.1123L2.17578 10.6123L12.6758 21.1123" strokeWidth="3" />

@@ -10,7 +10,7 @@
 
 /* Colores modo oscuro */
 .dark {
-  --background: #0a0a0a;
+  --background: oklch(21% 0.006 285.885);
   --foreground: #ededed;
 }
 

@@ -3,8 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 
 export default function ImageWithLink({ link, image, altText, ...props }) {
-    console.log(image);
-
     return (
         <div>
             {link && isSafeUrl(link) ? (

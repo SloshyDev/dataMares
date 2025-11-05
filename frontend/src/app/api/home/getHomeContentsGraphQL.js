@@ -26,7 +26,11 @@ export default async function getHomeContentsGraphQL() {
         data_contents {
           Title
           Banner {
-            caption
+            height
+            width
+            url  
+          }
+          Promo {
             height
             width
             url  

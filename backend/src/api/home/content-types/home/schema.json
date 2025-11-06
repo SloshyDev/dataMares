@@ -9,7 +9,11 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "data_contents": {
       "type": "relation",
@@ -18,8 +22,23 @@
     },
     "latest_news": {
       "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "component": "image-with-link.latest-news",
       "repeatable": false
+    },
+    "reading_recommendations": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "image-with-link.latest-news",
+      "repeatable": true
     }
   }
 }

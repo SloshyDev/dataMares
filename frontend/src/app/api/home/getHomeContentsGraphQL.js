@@ -1,4 +1,4 @@
-import { API_URL } from "@/app/contants/url";
+import { API_URL } from '@/app/contants/url';
 
 let cachedData = null;
 let lastFetch = 0;
@@ -7,7 +7,7 @@ const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
 export default async function getHomeContentsGraphQL() {
   const isDev = process.env.NODE_ENV === 'development';
   const now = Date.now();
-  if (!isDev && cachedData && (now - lastFetch < CACHE_TIME)) {
+  if (!isDev && cachedData && now - lastFetch < CACHE_TIME) {
     return cachedData;
   }
   const query = `
@@ -36,6 +36,15 @@ export default async function getHomeContentsGraphQL() {
             url  
           }
         }
+        reading_recommendations {
+          Image {
+            width
+            url
+            height
+          }
+          Title
+          Link
+        }
       }
     }
   `;
@@ -50,6 +59,7 @@ export default async function getHomeContentsGraphQL() {
   const result = {
     latest_news_data: data?.home?.latest_news ?? [],
     data_contents_data: data?.home?.data_contents ?? [],
+    reading_recommendations_data: data?.home?.reading_recommendations ?? [],
   };
   if (!isDev) {
     cachedData = result;

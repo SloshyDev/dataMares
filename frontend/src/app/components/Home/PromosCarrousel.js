@@ -1,6 +1,5 @@
 'use client';
 import React, { useRef } from 'react';
-import styles from './BannersCarrousel.module.css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import { BASE_URL } from '@/app/contants/url';
@@ -43,7 +42,7 @@ export default function PromosCarrousel({ contents }) {
   };
 
   return (
-    <section className="my-8 bg-[#00302e] px-5 pb-8">
+    <section className="mt-8 bg-[#00302e] px-5 pb-8">
       <h1 className="py-4 text-center font-myriad-condensed text-4xl font-black text-white uppercase">{t('most_recent')}</h1>
       <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="My Favorite Images">
         <SplideTrack>

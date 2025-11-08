@@ -39,6 +39,16 @@
       },
       "component": "image-with-link.latest-news",
       "repeatable": true
+    },
+    "do_not_miss_it": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "image-with-link.latest-news",
+      "repeatable": true
     }
   }
 }

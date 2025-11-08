@@ -9,7 +9,7 @@ export interface ImageWithLinkLatestNews extends Struct.ComponentSchema {
   attributes: {
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Link: Schema.Attribute.String;
-    Title: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
   };
 }
 

@@ -58,7 +58,6 @@ backend/public/uploads/*
 backend/.env
 backend/.cache/
 backend/build/
-backend/dist/
 
 # Strapi
 .strapi-updater.json

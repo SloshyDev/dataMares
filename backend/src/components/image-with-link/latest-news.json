@@ -7,7 +7,7 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "text"
+      "type": "string"
     },
     "Link": {
       "type": "string"

@@ -483,6 +483,12 @@ export interface ApiDataContentDataContent extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    do_not_miss_it_large: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    do_not_miss_it_small: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -555,6 +561,15 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::data-content.data-content'
     >;
+    do_not_miss_it: Schema.Attribute.Component<
+      'image-with-link.latest-news',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     latest_news: Schema.Attribute.Component<
       'image-with-link.latest-news',
       false

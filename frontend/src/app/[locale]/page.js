@@ -5,13 +5,15 @@ import getHomeContentsGraphQL from '../api/home/getHomeContentsGraphQL';
 import LatestNews from '../components/Home/LatestNews';
 import PromosCarrousel from '../components/Home/PromosCarrousel';
 import ReadingRecommendations from '../components/Home/ReadingRecommendations';
+import DoNotMissIt from '../components/Home/DoNotMissIt';
 
 export default async function Home({ params }) {
   const { locale } = await params;
   const { t, resources } = await initTranslations(locale, ['home']);
   const i18nNamespace = ['home'];
 
-  const { latest_news_data, data_contents_data, reading_recommendations_data } = await getHomeContentsGraphQL();
+  const { latest_news_data, data_contents_data, reading_recommendations_data, do_not_miss_it_data } =
+    await getHomeContentsGraphQL();
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto min-h-screen max-w-[2048px]">
@@ -21,6 +23,7 @@ export default async function Home({ params }) {
         </section>
         <PromosCarrousel contents={data_contents_data} />
         <ReadingRecommendations contents={reading_recommendations_data} />
+        <DoNotMissIt contents={do_not_miss_it_data} />
       </main>
     </TranslationsProvider>
   );

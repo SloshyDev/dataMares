@@ -8,12 +8,12 @@ coverage/
 
 # Next.js
 .next/
-out/
-build/
+frontend/out/
+frontend/build/
 frontend/dist/
 
 # Production
-build/
+frontend/build/
 
 # Misc
 .DS_Store

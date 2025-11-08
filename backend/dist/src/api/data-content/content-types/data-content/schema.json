@@ -1,0 +1,72 @@
+{
+    "kind": "collectionType",
+    "collectionName": "data_contents",
+    "info": {
+        "singularName": "data-content",
+        "pluralName": "data-contents",
+        "displayName": "dataContent"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Title": {
+            "type": "string"
+        },
+        "ScientificName": {
+            "type": "string"
+        },
+        "Caption": {
+            "type": "text"
+        },
+        "Banner": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "Promo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "Poster": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "PDF": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "files"
+            ]
+        },
+        "do_not_miss_it_large": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "do_not_miss_it_small": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        }
+    }
+}

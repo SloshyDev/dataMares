@@ -8,6 +8,17 @@ export default function ImageWithLink({ link, image, altText, unoptimized, ...pr
   // If caller provided `unoptimized` use it; otherwise keep previous behavior:
   // unoptimized in non-production (helps dev). In production images are optimized by default.
   const shouldUnopt = typeof unoptimized !== 'undefined' ? unoptimized : !isProduction;
+  // Defensive: if image is missing or has no URL, avoid rendering <Image> to prevent runtime errors
+  if (!image || !image.url) {
+    if (!isProduction) {
+      // helpful dev warning in console so you can trace missing images
+      // eslint-disable-next-line no-console
+      console.warn('ImageWithLink: missing image or image.url', { image, props, altText });
+    }
+    return <div aria-hidden="true" />;
+  }
+
+  const src = getImageUrl(image.url);
 
   return (
     <div>
@@ -18,7 +29,7 @@ export default function ImageWithLink({ link, image, altText, unoptimized, ...pr
             {...(shouldUnopt && { unoptimized: true })}
             width={image.width}
             height={image.height}
-            src={getImageUrl(image.url)}
+            src={src}
             alt={altText}
           />
         </a>
@@ -28,7 +39,7 @@ export default function ImageWithLink({ link, image, altText, unoptimized, ...pr
           {...(shouldUnopt && { unoptimized: true })}
           width={image.width}
           height={image.height}
-          src={getImageUrl(image.url)}
+          src={src}
           alt={altText}
         />
       )}

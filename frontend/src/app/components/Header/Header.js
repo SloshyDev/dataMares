@@ -12,54 +12,46 @@ import NavIcons from './NavIcons';
 import Link from 'next/link';
 
 export default function Header() {
-    const menuData = useMenuData();
-    const {
-        isMenuOpen,
-        breadcrumb,
-        displayMenu,
-        handleMenuClick,
-        handleBackClick,
-        resetMenu,
-        toggleMenu
-    } = useMobileMenuNavigation(menuData);
+  const menuData = useMenuData();
+  const { isMenuOpen, breadcrumb, displayMenu, handleMenuClick, handleBackClick, resetMenu, toggleMenu } =
+    useMobileMenuNavigation(menuData);
 
-    return (
-        <header className="bg-zinc-100 mb-5 dark:bg-zinc-800 transition-colors duration-300 border-b-2 border-gray-300 dark:border-gray-700">
-            <div className="max-w-[2048px] mx-auto">
-                <nav className="w-full px-4 py-2 flex justify-between items-center">
-                    <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />
-                    <div className="flex items-center w-full lg:w-auto justify-center lg:justify-start gap-4">
-                        <Link href="/" className="block">
-                            <span className="block lg:block xl:hidden 2xl:block h-8 w-auto">
-                                <DmFullLogo className="h-8 w-auto" />
-                            </span>
-                            <span className="hidden lg:hidden xl:block 2xl:hidden h-8 w-auto">
-                                <DmMinLogo className="h-8 w-auto" />
-                            </span>
-                        </Link>
-                        <div className="block lg:hidden xl:block">
-                            <DesktopMenu menuData={menuData} />
-                        </div>
-                    </div>
-
-
-                    <div className="hidden lg:block">
-                        <NavIcons />
-                    </div>
-                </nav>
-                <div className="hidden lg:block xl:hidden">
-                    <DesktopMenu menuData={menuData} />
-                </div>
+  return (
+    <header className="sticky top-0 z-50 mb-5 border-b-2 border-gray-300 bg-zinc-100 transition-colors duration-300 dark:border-gray-700 dark:bg-zinc-800">
+      <div className="mx-auto max-w-[2048px]">
+        <nav className="flex w-full items-center justify-between px-4 py-2">
+          <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />
+          <div className="flex w-full items-center justify-center gap-4 lg:w-auto lg:justify-start">
+            <Link href="/" className="block">
+              <span className="block h-8 w-auto lg:block xl:hidden 2xl:block">
+                <DmFullLogo className="h-8 w-auto" />
+              </span>
+              <span className="hidden h-8 w-auto lg:hidden xl:block 2xl:hidden">
+                <DmMinLogo className="h-8 w-auto" />
+              </span>
+            </Link>
+            <div className="block lg:hidden xl:block">
+              <DesktopMenu menuData={menuData} />
             </div>
+          </div>
 
-            <MobileMenu
-                isMenuOpen={isMenuOpen}
-                breadcrumb={breadcrumb}
-                displayMenu={displayMenu}
-                handleBackClick={handleBackClick}
-                handleMenuClick={handleMenuClick}
-                resetMenu={resetMenu}
-            />
-        </header>
-    );
+          <div className="hidden lg:block">
+            <NavIcons />
+          </div>
+        </nav>
+        <div className="hidden lg:block xl:hidden">
+          <DesktopMenu menuData={menuData} />
+        </div>
+      </div>
+
+      <MobileMenu
+        isMenuOpen={isMenuOpen}
+        breadcrumb={breadcrumb}
+        displayMenu={displayMenu}
+        handleBackClick={handleBackClick}
+        handleMenuClick={handleMenuClick}
+        resetMenu={resetMenu}
+      />
+    </header>
+  );
 }

@@ -1,18 +1,39 @@
 import { API_URL } from '@/app/contants/url';
 import { cookies } from 'next/headers';
 
-let cachedData = null;
-let lastFetch = 0;
+// cache keyed by locale so different locales don't share the same cached response
+let cachedData = {};
+let lastFetch = {};
 const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
 
 export default async function getHomeContentsGraphQL(localeParam) {
   const isDev = process.env.NODE_ENV === 'development';
   const now = Date.now();
-  if (!isDev && cachedData && now - lastFetch < CACHE_TIME) {
-    return cachedData;
-  }
+
   // prefer explicit param (from page). If not provided, try to read NEXT_LOCALE cookie safely.
   let locale = localeParam;
+  if (!locale) {
+    try {
+      const cookieStore = cookies();
+      if (typeof cookieStore.get === 'function') {
+        locale = cookieStore.get('NEXT_LOCALE')?.value;
+      } else if (typeof cookieStore.getAll === 'function') {
+        const found = cookieStore.getAll().find((c) => c.name === 'NEXT_LOCALE');
+        locale = found?.value;
+      } else if (cookieStore?.NEXT_LOCALE) {
+        locale = cookieStore.NEXT_LOCALE?.value ?? cookieStore.NEXT_LOCALE;
+      }
+    } catch (e) {
+      // ignore and fallback
+    }
+  }
+  locale = locale ?? 'en';
+
+  // return cached response for this locale when valid
+  if (!isDev && cachedData[locale] && now - (lastFetch[locale] ?? 0) < CACHE_TIME) {
+    return cachedData[locale];
+  }
+
   const query = `
     query HOME_CONTENTS {
       home(locale: "${locale}") {

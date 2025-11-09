@@ -13,7 +13,10 @@ export default async function Home({ params }) {
   const i18nNamespace = ['home'];
 
   const { latest_news_data, data_contents_data, reading_recommendations_data, do_not_miss_it_data } =
-    await getHomeContentsGraphQL();
+    await getHomeContentsGraphQL(locale);
+
+  console.log(data_contents_data);
+
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto min-h-screen max-w-[2048px]">
@@ -21,9 +24,9 @@ export default async function Home({ params }) {
           <BannersCarrousel className="w-full lg:w-[73%]" contents={data_contents_data} />
           <LatestNews className="flex w-full flex-col justify-between lg:w-[25%]" contents={latest_news_data} />
         </section>
-        <PromosCarrousel contents={data_contents_data} />
+        {/* <PromosCarrousel contents={data_contents_data} />
         <ReadingRecommendations contents={reading_recommendations_data} />
-        <DoNotMissIt contents={do_not_miss_it_data} />
+        <DoNotMissIt contents={do_not_miss_it_data} /> */}
       </main>
     </TranslationsProvider>
   );

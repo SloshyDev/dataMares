@@ -1,13 +1,15 @@
 'use client';
 import React, { useRef } from 'react';
-import { getImageUrl } from '@/app/contants/url';
 import styles from './BannersCarrousel.module.css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
-import Image from 'next/image';
+import ImageWithLink from '../Common/ImageWithLink';
+import { useTranslation } from 'react-i18next';
 
 export default function BannersCarrousel({ contents, ...props }) {
   const splideRef = useRef(null);
+
+  console.log(useTranslation());
 
   const handlePrev = () => {
     if (splideRef.current && splideRef.current.splide) {
@@ -47,14 +49,7 @@ export default function BannersCarrousel({ contents, ...props }) {
       <SplideTrack>
         {(Array.isArray(contents) ? contents : []).map((content, index) => (
           <SplideSlide key={content.documentId || index}>
-            <Image
-              unoptimized
-              className="w-full rounded-2xl"
-              width={content.Banner.width}
-              height={content.Banner.height}
-              src={getImageUrl(content.Banner.url)}
-              alt={content.Title}
-            />
+            <ImageWithLink link={content.Link} image={content.Banner} altText={content.Title} />
           </SplideSlide>
         ))}
       </SplideTrack>

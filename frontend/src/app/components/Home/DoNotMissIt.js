@@ -5,7 +5,6 @@ import ImageWithLink from '../Common/ImageWithLink';
 
 export default function DoNotMissIt({ contents }) {
   const { t } = useTranslation();
-  console.log(contents);
 
   return (
     <div className="mt-8 px-5">

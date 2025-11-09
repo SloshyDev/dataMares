@@ -1,18 +1,21 @@
 import { API_URL } from '@/app/contants/url';
+import { cookies } from 'next/headers';
 
 let cachedData = null;
 let lastFetch = 0;
 const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
 
-export default async function getHomeContentsGraphQL() {
+export default async function getHomeContentsGraphQL(localeParam) {
   const isDev = process.env.NODE_ENV === 'development';
   const now = Date.now();
   if (!isDev && cachedData && now - lastFetch < CACHE_TIME) {
     return cachedData;
   }
+  // prefer explicit param (from page). If not provided, try to read NEXT_LOCALE cookie safely.
+  let locale = localeParam;
   const query = `
     query HOME_CONTENTS {
-      home {
+      home(locale: "${locale}") {
           latest_news{
           Link
           Title

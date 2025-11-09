@@ -9,19 +9,43 @@
     "options": {
         "draftAndPublish": true
     },
-    "pluginOptions": {},
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
     "attributes": {
         "Title": {
-            "type": "string"
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         },
         "ScientificName": {
-            "type": "string"
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         },
         "Caption": {
-            "type": "text"
+            "type": "text",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
         },
         "Banner": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "images"
@@ -29,6 +53,11 @@
         },
         "Promo": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "images"
@@ -36,6 +65,11 @@
         },
         "Poster": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "images"
@@ -43,6 +77,11 @@
         },
         "PDF": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "files"
@@ -50,6 +89,11 @@
         },
         "do_not_miss_it_large": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "images",
@@ -60,6 +104,11 @@
         },
         "do_not_miss_it_small": {
             "type": "media",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
             "multiple": false,
             "allowedTypes": [
                 "images",

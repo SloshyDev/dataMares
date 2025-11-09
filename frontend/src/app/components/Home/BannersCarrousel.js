@@ -49,7 +49,7 @@ export default function BannersCarrousel({ contents, ...props }) {
       <SplideTrack>
         {(Array.isArray(contents) ? contents : []).map((content, index) => (
           <SplideSlide key={content.documentId || index}>
-            <ImageWithLink link={content.Link} image={content.Banner} altText={content.Title} />
+            <ImageWithLink link={content.Link} unoptimized={true} image={content.Banner} altText={content.Title} />
           </SplideSlide>
         ))}
       </SplideTrack>

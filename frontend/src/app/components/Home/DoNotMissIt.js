@@ -13,11 +13,11 @@ export default function DoNotMissIt({ contents }) {
       </h2>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="">
-          <ImageWithLink image={contents[0].Image} link={contents[0].Link} altText={contents[0].Title} />
+          <ImageWithLink unoptimized={true} image={contents[0].Image} link={contents[0].Link} altText={contents[0].Title} />
         </div>
         <div className="flex flex-col justify-between pl-6">
-          <ImageWithLink image={contents[1].Image} link={contents[1].Link} altText={contents[1].Title} />
-          <ImageWithLink image={contents[2].Image} link={contents[2].Link} altText={contents[2].Title} />
+          <ImageWithLink unoptimized={true} image={contents[1].Image} link={contents[1].Link} altText={contents[1].Title} />
+          <ImageWithLink unoptimized={true} image={contents[2].Image} link={contents[2].Link} altText={contents[2].Title} />
         </div>
       </div>
     </div>

@@ -11,7 +11,13 @@ export default function LatestNews({ contents, ...props }) {
         <h2 className="block bg-[#00302e] py-1 text-center font-myriad-condensed text-3xl font-black text-[#c4cc2d] uppercase lg:hidden 2xl:block">
           {t('latest_news')}
         </h2>
-        <ImageWithLink className="w-full" link={contents?.Link} image={contents?.Image} altText={contents?.Title} />
+        <ImageWithLink
+          unoptimized={true}
+          className="w-full"
+          link={contents?.Link}
+          image={contents?.Image}
+          altText={contents?.Title}
+        />
       </div>
       <Link
         href="/news"

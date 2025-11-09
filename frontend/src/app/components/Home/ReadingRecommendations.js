@@ -4,6 +4,7 @@ import { SplideSlide, SplideTrack, Splide } from '@splidejs/react-splide';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import ImageWithLink from '../Common/ImageWithLink';
 
 export default function ReadingRecommendations({ contents }) {
   const { t } = useTranslation();
@@ -36,13 +37,12 @@ export default function ReadingRecommendations({ contents }) {
         <SplideTrack>
           {(Array.isArray(contents) ? contents.slice(0, 4) : []).map((content, index) => (
             <SplideSlide key={content.documentId || index}>
-              <Image
-                unoptimized
+              <ImageWithLink
+                unoptimized={true}
                 className="w-full rounded-2xl"
-                width={content.Image.width}
-                height={content.Image.height}
-                src={getImageUrl(content.Image.url)}
-                alt={content.Title}
+                link={content.Link}
+                image={content.Image}
+                altText={content.Title}
               />
             </SplideSlide>
           ))}

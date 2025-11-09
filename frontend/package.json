@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.2.0",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "@vercel/analytics": "^1.5.0",
     "i18next": "^25.6.0",
     "i18next-resources-to-backend": "^1.2.1",
     "next": "16.0.1",

@@ -5,6 +5,7 @@ import initTranslations from '../i18n';
 import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 import Footer from '../components/Footer/Footer';
+import { Analytics } from '@vercel/analytics/next';
 
 const validLocales = ['en', 'es'];
 
@@ -29,15 +30,7 @@ export async function generateMetadata({ params }) {
     description: descriptions[locale] || descriptions.es,
     keywords:
       locale === 'en'
-        ? [
-            'scientific data',
-            'transparency',
-            'science',
-            'data visualization',
-            'research',
-            'open data',
-            'dataMares',
-          ]
+        ? ['scientific data', 'transparency', 'science', 'data visualization', 'research', 'open data', 'dataMares']
         : [
             'datos científicos',
             'transparencia',
@@ -110,19 +103,12 @@ export default async function RootLayout({ children, params }) {
     notFound();
   }
 
-  const { resources } = await initTranslations(locale, [
-    'header',
-    'not-found',
-    'footer',
-  ]);
+  const { resources } = await initTranslations(locale, ['header', 'not-found', 'footer']);
 
   return (
     <html suppressHydrationWarning lang={locale}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://use.typekit.net/fix5wnb.css"
-        ></link>
+        <link rel="stylesheet" href="https://use.typekit.net/fix5wnb.css"></link>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -136,39 +122,27 @@ export default async function RootLayout({ children, params }) {
                 locale === 'en'
                   ? 'dataMares promotes transparency and free access to data, bringing science closer to the public with graphic and interactive material.'
                   : 'dataMares promueve transparencia y acceso libre a datos, acercando la ciencia al público con material gráfico e interactivo.',
-              sameAs: [
-                'https://facebook.com/datamares',
-                'https://instagram.com/datamares_/',
-                'https://x.com/datamares',
-              ],
+              sameAs: ['https://facebook.com/datamares', 'https://instagram.com/datamares_/', 'https://x.com/datamares'],
               contactPoint: {
                 '@type': 'ContactPoint',
                 email: 'contact@datamares.org',
                 contactType: 'customer service',
               },
               foundingDate: '2024',
-              knowsAbout: [
-                'Scientific Data',
-                'Data Transparency',
-                'Data Visualization',
-                'Research',
-              ],
+              knowsAbout: ['Scientific Data', 'Data Transparency', 'Data Visualization', 'Research'],
             }),
           }}
         />
       </head>
       <body className={`antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TranslationsProvider
-            resources={resources}
-            locale={locale}
-            namespaces={['header', 'not-found']}
-          >
+          <TranslationsProvider resources={resources} locale={locale} namespaces={['header', 'not-found']}>
             <section className="mx-auto flex min-h-screen flex-col justify-between">
               <Header />
               {children}
               <Footer />
             </section>
+            <Analytics />
           </TranslationsProvider>
         </ThemeProvider>
       </body>

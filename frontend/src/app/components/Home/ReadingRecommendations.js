@@ -1,5 +1,5 @@
 'use client';
-import { BASE_URL } from '@/app/contants/url';
+import { getImageUrl } from '@/app/contants/url';
 import { SplideSlide, SplideTrack, Splide } from '@splidejs/react-splide';
 import Image from 'next/image';
 import React, { useRef } from 'react';
@@ -41,7 +41,7 @@ export default function ReadingRecommendations({ contents }) {
                 className="w-full rounded-2xl"
                 width={content.Image.width}
                 height={content.Image.height}
-                src={BASE_URL + content.Image.url}
+                src={getImageUrl(content.Image.url)}
                 alt={content.Title}
               />
             </SplideSlide>

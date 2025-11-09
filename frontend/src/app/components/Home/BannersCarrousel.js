@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef } from 'react';
-import { BASE_URL } from '@/app/contants/url';
+import { getImageUrl } from '@/app/contants/url';
 import styles from './BannersCarrousel.module.css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
@@ -52,7 +52,7 @@ export default function BannersCarrousel({ contents, ...props }) {
               className="w-full rounded-2xl"
               width={content.Banner.width}
               height={content.Banner.height}
-              src={BASE_URL + content.Banner.url}
+              src={getImageUrl(content.Banner.url)}
               alt={content.Title}
             />
           </SplideSlide>

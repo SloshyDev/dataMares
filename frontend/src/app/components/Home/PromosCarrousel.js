@@ -2,9 +2,9 @@
 import React, { useRef } from 'react';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
-import { BASE_URL } from '@/app/contants/url';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import { getImageUrl } from '@/app/contants/url';
 export default function PromosCarrousel({ contents }) {
   const { t } = useTranslation();
 
@@ -53,7 +53,7 @@ export default function PromosCarrousel({ contents }) {
                 className="w-full rounded-2xl"
                 width={content.Promo.width}
                 height={content.Promo.height}
-                src={BASE_URL + content.Promo.url}
+                src={getImageUrl(content.Promo.url)}
                 alt={content.Title}
               />
             </SplideSlide>

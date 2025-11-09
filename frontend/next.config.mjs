@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
       },
+      {
+        protocol: 'https',
+        hostname: 'creative-respect-d09344948f.strapiapp.com/graphql',
+        port: '',
+      }
     ],
   },
   // ...existing config

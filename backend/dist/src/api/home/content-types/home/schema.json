@@ -49,6 +49,16 @@
             },
             "component": "image-with-link.latest-news",
             "repeatable": true
+        },
+        "dm_graphic": {
+            "type": "component",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "image-with-link.latest-news",
+            "repeatable": true
         }
     }
 }

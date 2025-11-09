@@ -4,12 +4,9 @@ import styles from './BannersCarrousel.module.css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import ImageWithLink from '../Common/ImageWithLink';
-import { useTranslation } from 'react-i18next';
 
 export default function BannersCarrousel({ contents, ...props }) {
   const splideRef = useRef(null);
-
-  console.log(useTranslation());
 
   const handlePrev = () => {
     if (splideRef.current && splideRef.current.splide) {

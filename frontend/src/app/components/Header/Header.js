@@ -22,7 +22,7 @@ export default function Header() {
         <nav className="flex w-full items-center justify-between px-4 py-2">
           <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />
           <div className="flex w-full items-center justify-center gap-4 lg:w-auto lg:justify-start">
-            <Link href="/" className="block">
+            <Link href="/" aria-label="Link to home" className="block">
               <span className="block h-8 w-auto lg:block xl:hidden 2xl:block">
                 <DmFullLogo className="h-8 w-auto" />
               </span>

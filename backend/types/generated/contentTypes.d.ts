@@ -610,6 +610,15 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::data-content.data-content'
     >;
+    dm_graphic: Schema.Attribute.Component<
+      'image-with-link.latest-news',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     do_not_miss_it: Schema.Attribute.Component<
       'image-with-link.latest-news',
       true

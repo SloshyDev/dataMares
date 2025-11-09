@@ -78,6 +78,15 @@ export default async function getHomeContentsGraphQL(localeParam) {
           Title
           Link
         }
+        dm_graphic {
+          Image {
+            width
+            url
+            height
+          }
+          Title
+          Link
+        }
       }
     }
   `;
@@ -94,6 +103,7 @@ export default async function getHomeContentsGraphQL(localeParam) {
     data_contents_data: data?.home?.data_contents ?? [],
     reading_recommendations_data: data?.home?.reading_recommendations ?? [],
     do_not_miss_it_data: data?.home?.do_not_miss_it ?? [],
+    dm_graphic_data: data?.home?.dm_graphic ?? null,
   };
   if (!isDev) {
     cachedData = result;

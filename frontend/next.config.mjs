@@ -7,10 +7,13 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
       },
+      // allow Strapi media subdomains (used by your CMS uploads)
       {
         protocol: 'https',
-        hostname: 'creative-respect-d09344948f.strapiapp.com/graphql',
+        // match hosts like creative-respect-d09344948f.media.strapiapp.com
+        hostname: '**.strapiapp.com',
         port: '',
+        pathname: '/**',
       }
     ],
   },

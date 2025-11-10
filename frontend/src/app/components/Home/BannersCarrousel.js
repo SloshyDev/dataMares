@@ -44,11 +44,63 @@ export default function BannersCarrousel({ contents, ...props }) {
       aria-label="My Favorite Images"
     >
       <SplideTrack>
-        {(Array.isArray(contents) ? contents : []).map((content, index) => (
-          <SplideSlide key={content.documentId || index}>
-            <ImageWithLink link={content.Link} unoptimized={true} image={content.Banner} altText={content.Title} />
-          </SplideSlide>
-        ))}
+        {(Array.isArray(contents) ? contents : []).map((content, index) => {
+          // Caso 1: ComponentDataContentDataContent (tiene data_contents array)
+          if (content.data_contents && Array.isArray(content.data_contents)) {
+            return content.data_contents.map((dataContent, subIndex) => (
+              <SplideSlide key={`${index}-${subIndex}`}>
+                <ImageWithLink
+                  slug={dataContent.Slug}
+                  type="datacontent"
+                  unoptimized={true}
+                  image={dataContent.Banner}
+                  altText={dataContent.Title}
+                />
+              </SplideSlide>
+            ));
+          }
+
+          // Caso 2: ComponentImageWithLinkLatestNews (tiene Image, Link, Title directamente)
+          if (content.Image) {
+            let linkProps = {};
+
+            // Determinar el tipo de link según TypeOfLink
+            switch (content.TypeOfLink) {
+              case 'dataContent':
+                // Link interno a contenido dinámico
+                linkProps = {
+                  slug: content.Slug,
+                  type: 'datacontent',
+                };
+                break;
+              case 'Page':
+                // Link interno a página estática (ej: /about) - misma pestaña
+                linkProps = {
+                  link: content.Link,
+                  isExternal: false,
+                };
+                break;
+              case 'ExternalLink':
+                // Link externo (abre en nueva pestaña)
+                linkProps = {
+                  link: content.Link,
+                  isExternal: true,
+                };
+                break;
+              default:
+                // Si no hay tipo o Link es null, no hay link
+                linkProps = {};
+            }
+
+            return (
+              <SplideSlide key={index}>
+                <ImageWithLink {...linkProps} unoptimized={true} image={content.Image} altText={content.Title} />
+              </SplideSlide>
+            );
+          }
+
+          return null;
+        })}
       </SplideTrack>
       <div className={`${styles.splide__arrows} hidden md:block`}>
         <button className={`${styles.splide__arrow} group ${styles['splide__arrow--prev']}`} onClick={handlePrev}>

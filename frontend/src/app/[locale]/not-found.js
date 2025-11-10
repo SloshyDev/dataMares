@@ -1,20 +1,16 @@
-'use client';
-
-import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 export default function NotFound() {
-    const { t } = useTranslation('not-found');
-
-    return (
-        <main className="min-h-screen flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-900">
-            <h1 className="text-6xl font-bold text-red-600 dark:text-red-500 mb-4">404</h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">{t('title')}</p>
-            <a
-                href="/"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-                {t('back_to_home')}
-            </a>
-        </main>
-    );
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center px-4">
+      <div className="text-center">
+        <h1 className="mb-4 text-9xl font-bold text-gray-800 dark:text-gray-200">404</h1>
+        <h2 className="mb-4 text-3xl font-semibold text-gray-700 dark:text-gray-300">Page Not Found</h2>
+        <p className="mb-8 text-gray-600 dark:text-gray-400">Sorry, the page you are looking for does not exist.</p>
+        <Link href="/" className="rounded-lg bg-[#1e7571] px-6 py-3 text-white transition-colors hover:bg-[#155955]">
+          Go Back Home
+        </Link>
+      </div>
+    </div>
+  );
 }

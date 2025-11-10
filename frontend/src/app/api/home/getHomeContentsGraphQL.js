@@ -37,56 +37,95 @@ export default async function getHomeContentsGraphQL(localeParam) {
   const query = `
     query HOME_CONTENTS {
       home(locale: "${locale}") {
-          latest_news{
-          Link
-          Title
-          Image {
-            caption
-            url
-            width
-            height
-          }
+      
+    Carrousel {
+      ... on ComponentImageWithLinkLatestNews {
+        Image {
+          width
+          url
+          height
         }
+        Link
+        Title
+        TypeOfLink
+      }
+      ... on ComponentDataContentDataContent {
         data_contents {
+          Slug
           Title
           Banner {
-            height
             width
-            url  
+            url
+            height
           }
+        }
+      }
+    }
+    Promos {
+      ... on ComponentImageWithLinkLatestNews {
+        Image {
+          width
+          url
+          height
+        }
+        Link
+        Title
+        TypeOfLink
+      }
+      ... on ComponentDataContentDataContent {
+        data_contents {
           Promo {
-            height
-            width
-            url  
-          }
-        }
-        reading_recommendations {
-          Image {
             width
             url
             height
           }
+          Slug
           Title
-          Link
         }
-        do_not_miss_it {
-          Image {
-            width
-            url
-            height
-          }
-          Title
-          Link
-        }
-        dm_graphic {
-          Image {
-            width
-            url
-            height
-          }
-          Title
-          Link
-        }
+      }
+    }
+    latest_news {
+      Image {
+        width
+        url
+        height
+      }
+      Link
+      Title
+      TypeOfLink
+    }
+    reading_recommendations {
+      Image {
+        width
+        url
+        name
+        height
+      }
+      Link
+      Title
+      TypeOfLink
+    }
+          do_not_miss_it {
+      Image {
+        width
+        url
+        height
+      }
+      Link
+      Title
+      TypeOfLink
+    }
+       dm_graphic {
+      Image {
+        width
+        url
+        height
+      }
+      Link
+      Title
+      TypeOfLink
+    }
+ 
       }
     }
   `;
@@ -98,12 +137,14 @@ export default async function getHomeContentsGraphQL(localeParam) {
   });
 
   const { data } = await res.json();
+
   const result = {
     latest_news_data: data?.home?.latest_news ?? [],
-    data_contents_data: data?.home?.data_contents ?? [],
     reading_recommendations_data: data?.home?.reading_recommendations ?? [],
     do_not_miss_it_data: data?.home?.do_not_miss_it ?? [],
     dm_graphic_data: data?.home?.dm_graphic ?? null,
+    carrousel_data: data?.home?.Carrousel ?? [],
+    promos_data: data?.home?.Promos ?? [],
   };
   if (!isDev) {
     cachedData = result;

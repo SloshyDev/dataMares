@@ -6,8 +6,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function HowDataMaresWorks({ contents }) {
-  console.log(contents);
-
   const { t } = useTranslation();
   return (
     <div className="my-8">

@@ -9,6 +9,10 @@ import { Analytics } from '@vercel/analytics/next';
 
 const validLocales = ['en', 'es'];
 
+export async function generateStaticParams() {
+  return validLocales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
@@ -97,7 +101,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function RootLayout({ children, params }) {
-  const { locale } = await params;
+  // Pre-resolve params para evitar warnings de Next.js 16
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
 
   if (!validLocales.includes(locale)) {
     notFound();

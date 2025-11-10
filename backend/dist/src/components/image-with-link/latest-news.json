@@ -21,6 +21,16 @@
                 "videos",
                 "audios"
             ]
+        },
+        "TypeOfLink": {
+            "type": "enumeration",
+            "default": "dataContent",
+            "enum": [
+                "dataContent",
+                "ExternalLink",
+                "Page",
+                "Story"
+            ]
         }
     },
     "config": {}

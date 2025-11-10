@@ -544,6 +544,12 @@ export interface ApiDataContentDataContent extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    Slug: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -603,13 +609,17 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    Carrousel: Schema.Attribute.DynamicZone<
+      ['image-with-link.latest-news', 'data-content.data-content']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    data_contents: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::data-content.data-content'
-    >;
     dm_graphic: Schema.Attribute.Component<
       'image-with-link.latest-news',
       true
@@ -639,6 +649,14 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
+    Promos: Schema.Attribute.DynamicZone<
+      ['image-with-link.latest-news', 'data-content.data-content']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     reading_recommendations: Schema.Attribute.Component<
       'image-with-link.latest-news',

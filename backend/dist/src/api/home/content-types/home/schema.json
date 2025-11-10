@@ -15,10 +15,29 @@
         }
     },
     "attributes": {
-        "data_contents": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::data-content.data-content"
+        "Carrousel": {
+            "type": "dynamiczone",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "components": [
+                "image-with-link.latest-news",
+                "data-content.data-content"
+            ]
+        },
+        "Promos": {
+            "type": "dynamiczone",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "components": [
+                "image-with-link.latest-news",
+                "data-content.data-content"
+            ]
         },
         "latest_news": {
             "type": "component",

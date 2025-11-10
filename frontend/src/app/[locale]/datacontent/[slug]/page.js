@@ -4,7 +4,6 @@ import DataContent from '@/app/components/dataContent/DataContent';
 export async function generateStaticParams() {
   // Obtener todos los contenidos de todos los idiomas
   const { dataContents } = await getDataContentGraphQL();
-
   // Generar combinaciones de locale + slug
   const params = [];
   const locales = ['en', 'es'];

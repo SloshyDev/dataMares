@@ -9,11 +9,6 @@ export default async function getDataContentGraphQL(localeParam) {
       Slug
       Title
       locale
-      Banner {
-        url
-        width
-        height
-      }
       PDF {
         url
       }
@@ -21,16 +16,12 @@ export default async function getDataContentGraphQL(localeParam) {
         width
         url
         hash
+        formats
       }
       localizations {
         Slug
         Title
         locale
-        Banner {
-          url
-          width
-          height
-        }
         PDF {
           url
         }

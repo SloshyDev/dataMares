@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import BannersCarrousel from '../components/Home/BannersCarrousel';
 import TranslationsProvider from '../components/TranslationsProvides';
 import initTranslations from '../i18n';

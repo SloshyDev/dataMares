@@ -2,20 +2,22 @@ import getDataContentGraphQL from '@/app/api/datacontent/getDataContentGraphQL';
 import DataContent from '@/app/components/dataContent/DataContent';
 
 export async function generateStaticParams() {
-  // Obtener todos los contenidos de todos los idiomas
   const { dataContents } = await getDataContentGraphQL();
-  // Generar combinaciones de locale + slug
   const params = [];
-  const locales = ['en', 'es'];
 
-  // Obtener slugs únicos
-  const uniqueSlugs = [...new Set(dataContents.map((dc) => dc.Slug))];
-
-  // Generar params para cada combinación de locale y slug
-  locales.forEach((locale) => {
-    uniqueSlugs.forEach((slug) => {
-      params.push({ locale, slug });
-    });
+  dataContents.forEach((item) => {
+    // Param para el idioma principal
+    if (typeof item.Slug === 'string' && typeof item.locale === 'string') {
+      params.push({ locale: item.locale, slug: item.Slug });
+    }
+    // Param para cada localización
+    if (Array.isArray(item.localizations)) {
+      item.localizations.forEach((loc) => {
+        if (typeof loc.Slug === 'string' && typeof loc.locale === 'string') {
+          params.push({ locale: loc.locale, slug: loc.Slug });
+        }
+      });
+    }
   });
 
   return params;

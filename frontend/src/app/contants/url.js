@@ -1,11 +1,12 @@
-export const API_URL = process.env.API_URL || 'http://localhost:5000/api';
-export const BASE_URL = process.env.BASE_URL || 'http://192.168.100.11:1337';
+export const API_URL = process.env.API_URL || 'http://api.yokaicdmx.com/graphql';
+export const BASE_URL = process.env.BASE_URL || 'http://api.yokaicdmx.com/';
 
 // Helper function to get full image URL
 export const getImageUrl = (url) => {
   if (!url) return '';
-  // If URL is already complete (starts with http), return as is
   if (url.startsWith('http')) return url;
-  // Otherwise, prepend BASE_URL if it exists
-  return BASE_URL ? `${BASE_URL}${url}` : url;
+  // Elimina la barra final de BASE_URL y la inicial de url antes de unir
+  const base = BASE_URL.endsWith('/') ? BASE_URL.slice(0, -1) : BASE_URL;
+  const path = url.startsWith('/') ? url.slice(1) : url;
+  return `${base}/${path}`;
 };

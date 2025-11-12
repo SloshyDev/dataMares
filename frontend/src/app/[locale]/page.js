@@ -23,12 +23,12 @@ export default async function Home({ params }) {
       <main className="mx-auto min-h-screen max-w-[2048px]">
         <section className="mx-5 flex flex-col items-center justify-between gap-8 lg:flex-row">
           <BannersCarrousel className="w-full lg:w-[73%]" contents={carrousel_data} />
-          <LatestNews className="flex w-full flex-col justify-between lg:w-[25%]" contents={latest_news_data} />
+          {/* <LatestNews className="flex w-full flex-col justify-between lg:w-[25%]" contents={latest_news_data} /> */}
         </section>
-        <PromosCarrousel contents={promos_data} />
+        {/* <PromosCarrousel contents={promos_data} />
         <ReadingRecommendations contents={reading_recommendations_data} />
         <DoNotMissIt contents={do_not_miss_it_data} />
-        <HowDataMaresWorks contents={dm_graphic_data} />
+        <HowDataMaresWorks contents={dm_graphic_data} /> */}
       </main>
     </TranslationsProvider>
   );

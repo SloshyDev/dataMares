@@ -8,7 +8,7 @@ export default function DoNotMissIt({ contents }) {
 
   return (
     <div className="mt-8 px-5">
-      <h2 className="mb-8 text-center font-myriad-condensed text-4xl font-black text-[#166561] uppercase dark:text-white">
+      <h2 className="mb-8 text-center font-myriad-condensed text-3xl font-black text-[#166561] uppercase dark:text-white">
         {t('do_not_miss')}
       </h2>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">

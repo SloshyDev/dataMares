@@ -30,7 +30,7 @@ export default function ReadingRecommendations({ contents }) {
 
   return (
     <div className="mt-8 px-5">
-      <h2 className="mb-8 text-center font-myriad-condensed text-4xl font-black text-[#166561] uppercase dark:text-white">
+      <h2 className="mb-8 text-center font-myriad-condensed text-3xl font-black text-[#166561] uppercase dark:text-white">
         {t('reading_recommendations')}...
       </h2>
       <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="My Favorite Images">

@@ -37,95 +37,92 @@ export default async function getHomeContentsGraphQL(localeParam) {
   const query = `
     query HOME_CONTENTS {
       home(locale: "${locale}") {
-      
-    Carrousel {
-      ... on ComponentImageWithLinkLatestNews {
-        Image {
-          width
-          url
-          height
+        Carrousel {
+          ... on ComponentImageWithLinkImageWithLink {
+            Image {
+              width
+              url
+              height
+            }
+            Link
+            Title
+            TypeOfLink
+          }
+          ... on ComponentDataContentDataContent {
+            data_contents {
+              Banner {
+                width
+                url
+                height
+              }
+              Slug
+              Title
+            }
+          }
         }
-        Link
-        Title
-        TypeOfLink
-      }
-      ... on ComponentDataContentDataContent {
-        data_contents {
-          Slug
+        Promos {
+          ... on ComponentImageWithLinkImageWithLink {
+            Image {
+              width
+              url
+              height
+            }
+            Link
+            Title
+            TypeOfLink
+          }
+          ... on ComponentDataContentDataContent {
+            data_contents {
+              Promo {
+                width
+                url
+                height
+              }
+              Title
+              Slug
+            }
+          }
+        }
+        lates_news {
+          Link
           Title
-          Banner {
+          TypeOfLink
+          Image {
             width
             url
             height
           }
         }
-      }
-    }
-    Promos {
-      ... on ComponentImageWithLinkLatestNews {
-        Image {
-          width
-          url
-          height
+        dm_graphic {
+          TypeOfLink
+          Title
+          Link
+          Image {
+            url
+            width
+            height
+          }
         }
-        Link
-        Title
-        TypeOfLink
-      }
-      ... on ComponentDataContentDataContent {
-        data_contents {
-          Promo {
+        do_not_miss_it {
+          TypeOfLink
+          Title
+          Link
+          Image {
             width
             url
             height
           }
-          Slug
-          Title
         }
-      }
-    }
-    latest_news {
-      Image {
-        width
-        url
-        height
-      }
-      Link
-      Title
-      TypeOfLink
-    }
-    reading_recommendations {
-      Image {
-        width
-        url
-        name
-        height
-      }
-      Link
-      Title
-      TypeOfLink
-    }
-          do_not_miss_it {
-      Image {
-        width
-        url
-        height
-      }
-      Link
-      Title
-      TypeOfLink
-    }
-       dm_graphic {
-      Image {
-        width
-        url
-        height
-      }
-      Link
-      Title
-      TypeOfLink
-    }
- 
+        reading_recommendations {
+          TypeOfLink
+          Title
+          Link
+          Image {
+            width
+            url
+            height
+          }
+        }
       }
     }
   `;

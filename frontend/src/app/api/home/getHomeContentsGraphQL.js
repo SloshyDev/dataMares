@@ -2,8 +2,7 @@ import { API_URL } from '@/app/contants/url';
 import { cookies } from 'next/headers';
 
 // cache keyed by locale so different locales don't share the same cached response
-// No cache in memory, always fetch fresh data
-const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
+// No cache, always fetch fresh data
 
 export default async function getHomeContentsGraphQL(localeParam) {
   const isDev = process.env.NODE_ENV === 'development';

@@ -29,14 +29,16 @@ export default function HowDataMaresWorks({ contents }) {
         />
       </Link>
 
-      <Image
-        unoptimized
-        src={getImageUrl(contents.Image.url)}
-        alt={contents?.Title || 'Placeholder Title'}
-        width={contents.Image.width || 300}
-        height={contents.Image.height || 200}
-        className="mx-auto mt-4 w-4/5"
-      />
+      {contents?.Image?.url && (
+        <Image
+          unoptimized
+          src={getImageUrl(contents.Image.url)}
+          alt={contents?.Title || 'Placeholder Title'}
+          width={contents.Image.width || 300}
+          height={contents.Image.height || 200}
+          className="mx-auto mt-4 w-4/5"
+        />
+      )}
     </div>
   );
 }

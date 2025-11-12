@@ -2,13 +2,7 @@ import { API_URL } from '@/app/contants/url';
 import { cookies } from 'next/headers';
 
 // cache keyed by locale so different locales don't share the same cached response
-let cachedData = {};
-let lastFetch = {};
-
-export function clearHomeCache() {
-  cachedData = {};
-  lastFetch = {};
-}
+// No cache in memory, always fetch fresh data
 const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
 
 export default async function getHomeContentsGraphQL(localeParam) {
@@ -35,9 +29,7 @@ export default async function getHomeContentsGraphQL(localeParam) {
   locale = locale ?? 'en';
 
   // return cached response for this locale when valid
-  if (!isDev && cachedData[locale] && now - (lastFetch[locale] ?? 0) < CACHE_TIME) {
-    return cachedData[locale];
-  }
+  // Always fetch fresh data
 
   const query = `
     query HOME_CONTENTS {
@@ -148,9 +140,6 @@ export default async function getHomeContentsGraphQL(localeParam) {
     carrousel_data: data?.home?.Carrousel ?? [],
     promos_data: data?.home?.Promos ?? [],
   };
-  if (!isDev) {
-    cachedData = result;
-    lastFetch = now;
-  }
+  // No caching, always return fresh result
   return result;
 }

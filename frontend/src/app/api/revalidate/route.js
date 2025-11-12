@@ -1,5 +1,4 @@
 import { revalidatePath } from 'next/cache';
-import { clearHomeCache } from '../home/getHomeContentsGraphQL';
 
 export async function POST(request) {
   const { searchParams } = new URL(request.url);
@@ -15,10 +14,7 @@ export async function POST(request) {
   }
 
   try {
-    // Si el path es home, limpia el caché de home
-    if (path === '/' || path === '/en' || path === '/es') {
-      clearHomeCache();
-    }
+    // Ya no es necesario limpiar caché en memoria
     revalidatePath(path);
     return new Response('Revalidated', { status: 200 });
   } catch (err) {

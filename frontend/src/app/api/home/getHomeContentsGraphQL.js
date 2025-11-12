@@ -4,6 +4,11 @@ import { cookies } from 'next/headers';
 // cache keyed by locale so different locales don't share the same cached response
 let cachedData = {};
 let lastFetch = {};
+
+export function clearHomeCache() {
+  cachedData = {};
+  lastFetch = {};
+}
 const CACHE_TIME = 24 * 60 * 60 * 1000; // 24 horas
 
 export default async function getHomeContentsGraphQL(localeParam) {

@@ -1,4 +1,5 @@
 import { revalidatePath } from 'next/cache';
+import { clearHomeCache } from '../home/getHomeContentsGraphQL';
 
 export async function POST(request) {
   const { searchParams } = new URL(request.url);
@@ -14,7 +15,11 @@ export async function POST(request) {
   }
 
   try {
-    revalidatePath(path); // <-- Esta es la función correcta en app directory
+    // Si el path es home, limpia el caché de home
+    if (path === '/' || path === '/en' || path === '/es') {
+      clearHomeCache();
+    }
+    revalidatePath(path);
     return new Response('Revalidated', { status: 200 });
   } catch (err) {
     return new Response('Error revalidating', { status: 500 });

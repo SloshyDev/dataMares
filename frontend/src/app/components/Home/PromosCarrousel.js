@@ -44,8 +44,7 @@ export default function PromosCarrousel({ contents }) {
 
   return (
     <section className="mt-8 bg-[#00302e] px-5 pb-8">
-      <h1 className="py-4 text-center font-myriad-condensed text-3
-      xl font-black text-white uppercase">{t('most_recent')}</h1>
+      <h1 className="py-4 text-center font-myriad-condensed text-3xl font-black text-white uppercase">{t('most_recent')}</h1>
       <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="My Favorite Images">
         <SplideTrack>
           {(Array.isArray(contents) ? contents : []).flatMap((content, index) => {

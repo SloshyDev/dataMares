@@ -1,5 +1,5 @@
-export const API_URL = process.env.API_URL || 'http://api.yokaicdmx.com/graphql';
-export const BASE_URL = process.env.BASE_URL || 'http://api.yokaicdmx.com/';
+export const API_URL = process.env.API_URL || 'https://api.yokaicdmx.com/graphql';
+export const BASE_URL = process.env.BASE_URL || 'https://api.yokaicdmx.com/';
 
 // Helper function to get full image URL
 export const getImageUrl = (url) => {

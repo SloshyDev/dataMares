@@ -6,6 +6,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function HowDataMaresWorks({ contents }) {
+  console.log(contents);
+
   const { t } = useTranslation();
   return (
     <div className="my-8">
@@ -26,12 +28,13 @@ export default function HowDataMaresWorks({ contents }) {
           className="mx-auto w-11/12"
         />
       </Link>
+
       <Image
         unoptimized
-        src={getImageUrl(contents[0]?.Image?.url || '')}
-        alt={contents[0]?.Title || 'Placeholder Title'}
-        width={contents[0]?.Image?.width || 300}
-        height={contents[0]?.Image?.height || 200}
+        src={getImageUrl(contents.Image.url)}
+        alt={contents?.Title || 'Placeholder Title'}
+        width={contents.Image.width || 300}
+        height={contents.Image.height || 200}
         className="mx-auto mt-4 w-4/5"
       />
     </div>

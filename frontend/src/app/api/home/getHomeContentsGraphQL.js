@@ -83,7 +83,7 @@ export default async function getHomeContentsGraphQL(localeParam) {
             }
           }
         }
-        lates_news {
+        latest_news {
           Link
           Title
           TypeOfLink

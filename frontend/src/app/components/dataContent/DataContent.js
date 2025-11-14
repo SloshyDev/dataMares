@@ -50,6 +50,7 @@ export default function DataContent({ content, locale }) {
           </div>
           <a
             href={getImageUrl(dataContent.PDF?.url)}
+            download={dataContent.PDF.url.split('/').pop() || 'documento.pdf'}
             className="mx-auto my-8 flex w-fit rounded-lg bg-[#6a9a4a] px-4 py-2 font-myriad-condensed text-2xl font-bold text-white transition-all hover:scale-105 hover:bg-[#125451]"
             target="_blank"
             rel="noopener noreferrer"

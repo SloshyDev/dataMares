@@ -11,6 +11,7 @@ export default async function getDataContentGraphQL() {
       locale
       PDF {
         url
+        size
       }
       Poster {
         width
@@ -26,6 +27,7 @@ export default async function getDataContentGraphQL() {
         locale
         PDF {
           url
+          size
         }
         Poster {
           width

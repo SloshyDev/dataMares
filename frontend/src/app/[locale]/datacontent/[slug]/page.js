@@ -84,5 +84,5 @@ export default async function DataContentPage({ params }) {
     );
   }
 
-  return <DataContent content={content} />;
+  return <DataContent content={content} locale={locale} />;
 }

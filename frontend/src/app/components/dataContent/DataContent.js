@@ -10,8 +10,6 @@ import { DocumentTextIcon } from '@heroicons/react/24/solid';
 export default function DataContent({ content, locale }) {
   const dataContent = content;
 
-  console.log(locale);
-
   const originalUrl = getImageUrl(dataContent.Poster?.url) ? getImageUrl(dataContent.Poster?.url) : undefined;
   const largeUrl = getImageUrl(dataContent.Poster?.formats?.large?.url)
     ? getImageUrl(dataContent.Poster?.formats?.large?.url)

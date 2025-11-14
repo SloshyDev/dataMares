@@ -37,7 +37,6 @@ export async function generateMetadata({ params }) {
   }
 
   const otherLocale = locale === 'en' ? 'es' : 'en';
-  const alternateContent = dataContents.find((item) => item.Slug === slug && item.locale === otherLocale);
 
   return {
     title: content.Title,

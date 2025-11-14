@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import ImageMagnifier from './ImageMagnifier';
 import { getImageUrl } from '@/app/contants/url';
 import FacebookIcon from '@/assets/socialIcons/fb_icon';
@@ -15,10 +16,15 @@ export default function DataContent(content) {
     ? getImageUrl(dataContent.Poster?.formats?.large?.url)
     : originalUrl;
 
-  // URL de la página actual para compartir
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const title = dataContent.Title;
+  // URL de la página actual para compartir (solo en cliente)
+  const [shareUrl, setShareUrl] = useState('');
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setShareUrl(window.location.href);
+    }
+  }, []);
 
+  const title = dataContent.Title;
   const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
   const instagramShare = 'https://www.instagram.com/'; // Instagram no permite compartir directo, solo redirige
   const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(title)}`;

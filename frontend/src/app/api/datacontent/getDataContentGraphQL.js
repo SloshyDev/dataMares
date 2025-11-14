@@ -32,7 +32,7 @@ export default async function getDataContentGraphQL() {
           height
           url
         }
-        Promo{
+        SharingContent {
           width
           height
           url

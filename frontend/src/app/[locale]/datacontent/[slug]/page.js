@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: content.Title,
       description: `${content.Caption} - dataMares`,
-      images: getImageUrl(content.Promo?.url) ? [getImageUrl(content.Promo.url)] : [],
+      images: getImageUrl(content.SharingContent?.url) ? [getImageUrl(content.SharingContent.url)] : [],
       locale: locale === 'en' ? 'en_US' : 'es_ES',
       alternateLocale: locale === 'en' ? 'es_ES' : 'en_US',
     },
@@ -57,10 +57,11 @@ export async function generateMetadata({ params }) {
       },
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
+      site: '@dataMares_',
       title: content.Title,
       description: `${content.Caption}`,
-      images: getImageUrl(content.Promo?.url) ? [getImageUrl(content.Promo.url)] : [],
+      image: getImageUrl(content.SharingContent?.url),
     },
   };
 }

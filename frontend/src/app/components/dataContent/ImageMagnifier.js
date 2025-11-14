@@ -126,7 +126,7 @@ export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200,
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <img ref={imgRef} src={src} alt={alt} className="h-full w-auto object-contain" />
+      <img ref={imgRef} src={src} alt={alt} className="h-full w-auto rounded-xl object-contain" />
 
       {showMagnifier && (
         <div

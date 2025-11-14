@@ -1,5 +1,6 @@
 import getDataContentGraphQL from '@/app/api/datacontent/getDataContentGraphQL';
 import DataContent from '@/app/components/dataContent/DataContent';
+import { getImageUrl } from '@/app/contants/url';
 
 export async function generateStaticParams() {
   const { dataContents } = await getDataContentGraphQL();
@@ -43,17 +44,8 @@ export async function generateMetadata({ params }) {
     description: `${content.Title} - dataMares`,
     openGraph: {
       title: content.Title,
-      description: `${content.Title} - dataMares`,
-      images: content.Banner
-        ? [
-            {
-              url: content.Banner.url,
-              width: content.Banner.width,
-              height: content.Banner.height,
-              alt: content.Title,
-            },
-          ]
-        : [],
+      description: `${content.Caption} - dataMares`,
+      images: getImageUrl(content.Promo?.url) ? [getImageUrl(content.Promo.url)] : [],
       locale: locale === 'en' ? 'en_US' : 'es_ES',
       alternateLocale: locale === 'en' ? 'es_ES' : 'en_US',
     },
@@ -67,8 +59,8 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: 'summary_large_image',
       title: content.Title,
-      description: `${content.Title} - dataMares`,
-      images: content.Banner ? [content.Banner.url] : [],
+      description: `${content.Caption}`,
+      images: getImageUrl(content.Promo?.url) ? [getImageUrl(content.Promo.url)] : [],
     },
   };
 }

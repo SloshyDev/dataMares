@@ -1,6 +1,4 @@
 import { API_URL } from '@/app/contants/url';
-let cachedData = {};
-let lastFetch = {};
 
 export default async function getDataContentGraphQL() {
   const query = `
@@ -8,6 +6,8 @@ export default async function getDataContentGraphQL() {
     dataContents {
       Slug
       Title
+      Caption
+      ScientificName
       locale
       PDF {
         url
@@ -21,11 +21,18 @@ export default async function getDataContentGraphQL() {
       localizations {
         Slug
         Title
+        Caption
+        ScientificName
         locale
         PDF {
           url
         }
         Poster {
+          width
+          height
+          url
+        }
+        Promo{
           width
           height
           url

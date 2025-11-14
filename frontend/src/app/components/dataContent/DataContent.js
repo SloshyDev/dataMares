@@ -46,17 +46,19 @@ export default function DataContent({ content, locale }) {
               <XIcon style={{ width: 32, height: 32 }} />
             </a>
           </div>
-          <a
-            href={getImageUrl(dataContent.PDF?.url)}
-            download={dataContent.PDF.url.split('/').pop() || 'documento.pdf'}
-            className="mx-auto my-8 flex w-fit rounded-lg bg-[#6a9a4a] px-4 py-2 font-myriad-condensed text-2xl font-bold text-white transition-all hover:scale-105 hover:bg-[#125451]"
-            target="_blank"
-            rel="noopener noreferrer"
-            title={locale === 'en' ? 'View PDF' : 'Ver PDF'}
-          >
-            <DocumentTextIcon className="mr-2 h-7 w-7" />
-            {`${locale === 'en' ? 'Download PDF' : 'Descargar PDF'} (${(dataContent.PDF?.size / 1024).toFixed(2)} KB)`}
-          </a>
+          {dataContent.PDF?.url && (
+            <a
+              href={getImageUrl(dataContent.PDF.url)}
+              download={dataContent.PDF.url.split('/').pop() || 'documento.pdf'}
+              className="mx-auto my-8 flex w-fit rounded-lg bg-[#6a9a4a] px-4 py-2 font-myriad-condensed text-2xl font-bold text-white transition-all hover:scale-105 hover:bg-[#125451]"
+              target="_blank"
+              rel="noopener noreferrer"
+              title={locale === 'en' ? 'View PDF' : 'Ver PDF'}
+            >
+              <DocumentTextIcon className="mr-2 h-7 w-7" />
+              {`${locale === 'en' ? 'Download PDF' : 'Descargar PDF'} (${(dataContent.PDF.size / 1024).toFixed(2)} KB)`}
+            </a>
+          )}
         </div>
       </div>
       <div className="mx-auto">

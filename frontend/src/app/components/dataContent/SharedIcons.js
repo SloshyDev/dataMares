@@ -4,7 +4,7 @@ import React from 'react';
 import DownloadPDFButton from './DownloadPDFButton';
 import XIcon from '@/assets/socialIcons/x_icon';
 
-export default function SharedIcons({ dataContent, locale, shareUrl }) {
+export default function SharedIcons({ dataContent, locale, shareUrl, ...props }) {
   const title = dataContent.Title;
   console.log(shareUrl);
 
@@ -12,7 +12,7 @@ export default function SharedIcons({ dataContent, locale, shareUrl }) {
   const instagramShare = 'https://www.instagram.com/'; // Instagram no permite compartir directo, solo redirige
   const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(title)}`;
   return (
-    <div className="mt-4">
+    <div className={props.className}>
       <div className="flex justify-center gap-4">
         <a href={facebookShare} target="_blank" rel="noopener noreferrer" title="Compartir en Facebook">
           <FacebookIcon style={{ width: 32, height: 32 }} />

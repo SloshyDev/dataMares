@@ -50,7 +50,7 @@ export default function DownloadPDFButton({ pdf, downloads, documentId, locale }
       window.URL.revokeObjectURL(url);
       // Mostrar alerta con las especificaciones
       setShowAlert(true);
-      //   setTimeout(() => setShowAlert(false), 12000); // Ocultar después de 12 segundos
+      setTimeout(() => setShowAlert(false), 8000); // Ocultar después de 12 segundos
     } catch (e) {
       alert('No se pudo descargar el PDF.');
     }
@@ -66,7 +66,7 @@ export default function DownloadPDFButton({ pdf, downloads, documentId, locale }
     <div className="relative">
       {/* Alerta flotante */}
       {showAlert && (
-        <div className="fixed top-20 left-1/2 z-50 w-96 -translate-x-1/2 rounded-lg border-2 border-[#265852] bg-[#eff0d3] p-4 shadow-2xl">
+        <div className="fixed top-20 left-1/2 z-50 w-96 -translate-x-1/2 animate-pulse rounded-lg border-2 border-[#265852] bg-[#eff0d3] p-4 shadow-2xl">
           <div className="flex items-start gap-3">
             <QuestionMarkCircleIcon className="h-6 w-6 shrink-0 text-[#265852]" />
             <div className="flex-1">

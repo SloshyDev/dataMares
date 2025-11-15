@@ -58,17 +58,21 @@ export default function DataContent({ content, locale }) {
     <div
       className={`mx-auto mb-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
     >
-      <div className={`px-8 ${dataContent.PDF?.url ? 'lg:order-1' : ''}`}>
-        <h1 className="text-center font-myriad-condensed text-5xl font-black text-[#125451]">{dataContent.Title}</h1>
-        <h2 className="mb-4 text-center text-3xl text-[#6a9a4a] italic dark:text-[#c5cf2e]">({dataContent.ScientificName})</h2>
+      <div className={`lg:px-8 ${dataContent.PDF?.url ? 'lg:order-1' : ''}`}>
+        <h1 className="text-center font-myriad-condensed text-3xl font-black text-[#125451] lg:text-5xl dark:text-[#1e7470]">
+          {dataContent.Title}
+        </h1>
+        <h2 className="mb-4 text-center text-xl text-[#6a9a4a] italic lg:text-3xl dark:text-[#c5cf2e]">
+          ({dataContent.ScientificName})
+        </h2>
         {dataContent.PDF?.url && (
           <>
-            <p className="mb-8 text-center text-lg">{dataContent.Caption}</p>
-            <SharedIcons dataContent={dataContent} locale={locale} shareUrl={shareUrl} />
+            <p className="mb-8 text-center lg:text-lg">{dataContent.Caption}</p>
+            <SharedIcons className="hidden lg:block" dataContent={dataContent} locale={locale} shareUrl={shareUrl} />
           </>
         )}
       </div>
-      <div className={`mx-auto ${dataContent.PDF?.url ? '' : 'flex h-120 w-200 items-center justify-center'}`}>
+      <div className={`mx-auto ${dataContent.PDF?.url ? '' : 'flex w-200 items-center justify-center lg:h-120'}`}>
         {dataContent.PDF?.url ? (
           <ImageMagnifier
             src={largeUrl}
@@ -88,6 +92,11 @@ export default function DataContent({ content, locale }) {
           </div>
         )}
       </div>
+      {dataContent.PDF?.url && (
+        <>
+          <SharedIcons className="block lg:hidden" dataContent={dataContent} locale={locale} shareUrl={shareUrl} />
+        </>
+      )}
     </div>
   );
 }

@@ -122,7 +122,7 @@ export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200,
   return (
     <div
       ref={containerRef}
-      className="relative inline-block h-[85vh] cursor-none touch-none"
+      className="relative inline-block cursor-none touch-none lg:h-[85vh]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

@@ -36,8 +36,6 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const otherLocale = locale === 'en' ? 'es' : 'en';
-
   return {
     title: content.Title,
     description: `${content.Title} - dataMares`,

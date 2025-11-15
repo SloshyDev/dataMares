@@ -4,6 +4,8 @@ export default async function getDataContentGraphQL() {
   const query = `
   query DATA_CONTENT {
     dataContents {
+      Downloads
+      documentId
       Slug
       Title
       Caption
@@ -20,6 +22,8 @@ export default async function getDataContentGraphQL() {
         formats
       }
       localizations {
+        Downloads
+        documentId
         Slug
         Title
         Caption

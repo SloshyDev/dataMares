@@ -36,29 +36,31 @@ export default function DataContent({ content, locale }) {
   // Redirección automática si no hay PDF
   useEffect(() => {
     if (!dataContent.PDF?.url && typeof window !== 'undefined') {
-      const timer = setInterval(() => {
-        setCountdown((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            // Cambiar idioma usando router de Next.js (fuera del render con setTimeout)
-            setTimeout(() => {
-              const otherLocale = locale === 'en' ? 'es' : 'en';
-              const generateSlugFromScientificName = (name) =>
-                typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
-              const slug = generateSlugFromScientificName(dataContent.ScientificName);
-              const newPath = `/${otherLocale}/datacontent/${slug}`;
-              router.push(newPath);
-            }, 0);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(timer);
+      const preferredLocale = localStorage.getItem('preferredLocale');
+      // Solo redirigir si el idioma preferido es diferente al actual o no está definido
+      if (!preferredLocale || preferredLocale !== locale) {
+        const timer = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              setTimeout(() => {
+                const otherLocale = locale === 'en' ? 'es' : 'en';
+                const generateSlugFromScientificName = (name) =>
+                  typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
+                const slug = generateSlugFromScientificName(dataContent.ScientificName);
+                const newPath = `/${otherLocale}/datacontent/${slug}`;
+                router.push(newPath);
+              }, 0);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+        return () => clearInterval(timer);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <div
       className={`mx-auto mb-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? (itsLargePoster ? 'lg:grid-cols-1' : 'lg:grid-cols-2') : 'lg:grid-cols-1'}`}

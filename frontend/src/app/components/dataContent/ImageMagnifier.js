@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200, zoomLevel = 2.5, posterWidth }) {
+export default function ImageMagnifier({ locale, src, zoomSrc, alt, magnifierSize = 200, zoomLevel = 2.5, posterWidth }) {
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
   const [currentZoom, setCurrentZoom] = useState(zoomLevel);
@@ -151,7 +151,7 @@ export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200,
 
       {showMagnifier && (
         <div className="absolute top-4 left-4 rounded bg-black/70 px-3 py-2 text-sm text-white">
-          Usa el scroll o gesto de pinza para zoom in/out
+          {locale === 'en' ? 'Use scroll or pinch to zoom in/out' : 'Usa scroll o pellizca para acercar/alejar'}
         </div>
       )}
     </div>

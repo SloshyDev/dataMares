@@ -60,6 +60,7 @@ export default function DataContent({ content, locale }) {
       <div className={`mx-auto ${dataContent.PDF?.url ? '' : 'flex w-200 items-center justify-center lg:h-120'}`}>
         {dataContent.PDF?.url ? (
           <ImageMagnifier
+            locale={locale}
             src={largeUrl}
             zoomSrc={originalUrl}
             alt={dataContent.Title || 'Data Poster'}

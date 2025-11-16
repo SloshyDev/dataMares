@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { getImageUrl } from '@/app/contants/url';
 import { DocumentTextIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
+import InfoIcon from '@/assets/socialIcons/info_icon';
 
 export default function DownloadPDFButton({ pdf, downloads, documentId, locale }) {
   const [downloading, setDownloading] = useState(false);
@@ -15,26 +16,20 @@ export default function DownloadPDFButton({ pdf, downloads, documentId, locale }
 
   const handleDownload = async () => {
     setDownloading(true);
-    let currentDownloads = downloads || 0;
-    // Obtener el número actual de descargas desde Strapi
+    // Incrementar contador en Strapi usando el endpoint seguro
     try {
-      const res = await fetch(`https://api.yokaicdmx.com/api/data-contents/${documentId}?locale=${locale}`);
-      if (res.ok) {
-        const json = await res.json();
-        currentDownloads = json?.data?.attributes?.Downloads ?? currentDownloads;
+      const updateRes = await fetch(
+        `https://api.yokaicdmx.com/api/data-contents/${documentId}/increment-download?locale=${locale}`,
+        {
+          method: 'POST',
+        },
+      );
+      if (updateRes.ok) {
+        const updateJson = await updateRes.json();
+        console.log('Descarga incrementada:', updateJson.data?.Downloads);
       }
     } catch (e) {
-      // Silenciar error
-    }
-    // Incrementar contador en Strapi
-    try {
-      await fetch(`https://api.yokaicdmx.com/api/data-contents/${documentId}?locale=${locale}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: { Downloads: (currentDownloads || 0) + 1 } }),
-      });
-    } catch (e) {
-      // Silenciar error, solo para estadísticas
+      console.error('Error incrementando descargas:', e);
     }
     // Descargar PDF cross-origin
     try {
@@ -80,12 +75,12 @@ export default function DownloadPDFButton({ pdf, downloads, documentId, locale }
         </div>
       )}
 
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-4">
         <button
           type="button"
           onClick={handleDownload}
           disabled={downloading}
-          className="my-8 flex w-fit rounded-lg bg-[#6a9a4a] px-4 py-2 font-myriad-condensed text-2xl font-bold text-white transition-all hover:scale-105 hover:bg-[#125451] disabled:opacity-60"
+          className="flex w-fit rounded-lg bg-[#6a9a4a] px-4 py-2 font-myriad-condensed text-2xl font-bold text-white transition-all hover:scale-105 hover:bg-[#125451] disabled:opacity-60"
           title={locale === 'en' ? 'View PDF' : 'Ver PDF'}
         >
           <DocumentTextIcon className="mr-2 h-7 w-7" />
@@ -95,8 +90,8 @@ export default function DownloadPDFButton({ pdf, downloads, documentId, locale }
               : 'Descargando...'
             : `${locale === 'en' ? 'Download PDF' : 'Descargar PDF'} (${sizeLabel})`}
         </button>
-        <div className="group relative my-8 hidden lg:block">
-          <QuestionMarkCircleIcon className="h-10 w-10 cursor-help text-[#265852] transition-colors hover:text-[#6a9a4a]" />
+        <div className="group relative hidden lg:block">
+          <InfoIcon className="group h-10 w-10" />
           <div className="invisible absolute bottom-full left-1/2 mb-2 w-80 -translate-x-1/2 rounded-lg bg-gray-800 p-3 text-sm whitespace-pre-line text-white opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
             {tooltipText}
             <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>

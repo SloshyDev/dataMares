@@ -6,16 +6,20 @@ export async function generateStaticParams() {
   const { dataContents } = await getDataContentGraphQL();
   const params = [];
 
+  function generateSlugFromScientificName(name) {
+    return typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
+  }
+
   dataContents.forEach((item) => {
     // Param para el idioma principal
-    if (typeof item.Slug === 'string' && typeof item.locale === 'string') {
-      params.push({ locale: item.locale, slug: item.Slug });
+    if (typeof item.ScientificName === 'string' && typeof item.locale === 'string') {
+      params.push({ locale: item.locale, slug: generateSlugFromScientificName(item.ScientificName) });
     }
     // Param para cada localización
     if (Array.isArray(item.localizations)) {
       item.localizations.forEach((loc) => {
-        if (typeof loc.Slug === 'string' && typeof loc.locale === 'string') {
-          params.push({ locale: loc.locale, slug: loc.Slug });
+        if (typeof loc.ScientificName === 'string' && typeof loc.locale === 'string') {
+          params.push({ locale: loc.locale, slug: generateSlugFromScientificName(loc.ScientificName) });
         }
       });
     }
@@ -28,7 +32,13 @@ export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
   const { dataContents } = await getDataContentGraphQL(locale);
 
-  const content = dataContents.find((item) => item.Slug === slug && item.locale === locale);
+  function generateSlugFromScientificName(name) {
+    return typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
+  }
+
+  const content = dataContents.find(
+    (item) => generateSlugFromScientificName(item.ScientificName) === slug && item.locale === locale,
+  );
 
   if (!content) {
     return {
@@ -67,8 +77,14 @@ export default async function DataContentPage({ params }) {
   const { locale, slug } = await params;
   const { dataContents } = await getDataContentGraphQL(locale);
 
+  function generateSlugFromScientificName(name) {
+    return typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
+  }
+
   // Buscar el contenido que coincida con el slug Y el locale
-  const content = dataContents.find((item) => item.Slug === slug && item.locale === locale);
+  const content = dataContents.find(
+    (item) => generateSlugFromScientificName(item.ScientificName) === slug && item.locale === locale,
+  );
 
   if (!content) {
     return (

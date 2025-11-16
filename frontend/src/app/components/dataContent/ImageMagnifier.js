@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200, zoomLevel = 2.5 }) {
+export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200, zoomLevel = 2.5, posterWidth }) {
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [magnifierPosition, setMagnifierPosition] = useState({ x: 0, y: 0 });
   const [currentZoom, setCurrentZoom] = useState(zoomLevel);
@@ -122,7 +122,7 @@ export default function ImageMagnifier({ src, zoomSrc, alt, magnifierSize = 200,
   return (
     <div
       ref={containerRef}
-      className="relative inline-block cursor-none touch-none lg:h-[85vh]"
+      className={`relative inline-block cursor-none touch-none ${posterWidth && posterWidth > 700 ? 'lg:h-[35vw]' : 'lg:h-[85vh]'}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

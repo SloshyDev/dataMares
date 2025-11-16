@@ -37,6 +37,7 @@ export default async function getDataContentGraphQL() {
           width
           height
           url
+          formats
         }
         SharingContent {
           width

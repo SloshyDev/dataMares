@@ -3,11 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ImageMagnifier from './ImageMagnifier';
 import { getImageUrl } from '@/app/contants/url';
-import FacebookIcon from '@/assets/socialIcons/fb_icon';
-import InstagramIcon from '@/assets/socialIcons/ig_icon';
-import XIcon from '@/assets/socialIcons/x_icon';
-
-import DownloadPDFButton from './DownloadPDFButton';
 import SharedIcons from './SharedIcons';
 
 export default function DataContent({ content, locale }) {
@@ -22,12 +17,21 @@ export default function DataContent({ content, locale }) {
   // URL de la página actual para compartir (solo en cliente)
   const [shareUrl, setShareUrl] = useState('');
   const [countdown, setCountdown] = useState(5);
+  const [itsLargePoster, setItsLargePoster] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setShareUrl(window.location.href);
     }
   }, []);
+
+  useEffect(() => {
+    const width = dataContent.Poster?.formats?.large?.width;
+    if (typeof width === 'number') {
+      setItsLargePoster(width > 700);
+    }
+    // Si no es número, no cambies el estado (mantén el valor anterior)
+  }, [dataContent.Poster]);
 
   // Redirección automática si no hay PDF
   useEffect(() => {
@@ -39,9 +43,10 @@ export default function DataContent({ content, locale }) {
             // Cambiar idioma usando router de Next.js (fuera del render con setTimeout)
             setTimeout(() => {
               const otherLocale = locale === 'en' ? 'es' : 'en';
-              const slug = dataContent.Slug;
+              const generateSlugFromScientificName = (name) =>
+                typeof name === 'string' ? name.toLowerCase().replace(/ /g, '_') : '';
+              const slug = generateSlugFromScientificName(dataContent.ScientificName);
               const newPath = `/${otherLocale}/datacontent/${slug}`;
-              console.log('Redirigiendo a', newPath);
               router.push(newPath);
             }, 0);
             return 0;
@@ -56,19 +61,24 @@ export default function DataContent({ content, locale }) {
 
   return (
     <div
-      className={`mx-auto mb-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
+      className={`mx-auto mb-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? (itsLargePoster ? 'lg:grid-cols-1' : 'lg:grid-cols-2') : 'lg:grid-cols-1'}`}
     >
-      <div className={`lg:px-8 ${dataContent.PDF?.url ? 'lg:order-1' : ''}`}>
+      <div className={` ${!dataContent.PDF?.url || itsLargePoster ? 'mx-auto lg:w-3/4' : 'lg:order-1 lg:px-8'}`}>
         <h1 className="text-center font-myriad-condensed text-3xl font-black text-[#125451] lg:text-5xl dark:text-[#1e7470]">
           {dataContent.Title}
         </h1>
-        <h2 className="mb-4 text-center text-xl text-[#6a9a4a] italic lg:text-3xl dark:text-[#c5cf2e]">
-          ({dataContent.ScientificName})
+        <h2 className="mb-4 text-center text-xl text-[#6a9a4a] lg:text-3xl dark:text-[#c5cf2e]">
+          (<span className="italic">{dataContent.ScientificName}</span>)
         </h2>
         {dataContent.PDF?.url && (
           <>
             <p className="mb-8 text-center lg:text-lg">{dataContent.Caption}</p>
-            <SharedIcons className="hidden lg:block" dataContent={dataContent} locale={locale} shareUrl={shareUrl} />
+            <SharedIcons
+              className={`hidden ${itsLargePoster ? 'flex-row-reverse items-center justify-center gap-4 lg:flex' : 'flex-col gap-8 lg:flex'} `}
+              dataContent={dataContent}
+              locale={locale}
+              shareUrl={shareUrl}
+            />
           </>
         )}
       </div>
@@ -80,6 +90,7 @@ export default function DataContent({ content, locale }) {
             alt={dataContent.Title || 'Data Poster'}
             magnifierSize={250}
             zoomLevel={3}
+            posterWidth={dataContent.Poster?.formats?.large?.width}
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center rounded-lg bg-gray-200 p-8">
@@ -94,7 +105,13 @@ export default function DataContent({ content, locale }) {
       </div>
       {dataContent.PDF?.url && (
         <>
-          <SharedIcons className="block lg:hidden" dataContent={dataContent} locale={locale} shareUrl={shareUrl} />
+          <SharedIcons
+            className="flex flex-col gap-4 lg:hidden"
+            dataContent={dataContent}
+            locale={locale}
+            shareUrl={shareUrl}
+            largePoster={itsLargePoster}
+          />
         </>
       )}
     </div>

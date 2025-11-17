@@ -1,16 +1,105 @@
 import React from 'react';
 import TranslationsProvider from '../../components/TranslationsProvides';
 import initTranslations from '../../i18n';
+import getAboutContentGraphQL from '@/app/api/about/getAboutContentGraphQL';
+import Image from 'next/image';
+import { getImageUrl } from '@/app/contants/url';
+import TeamGrid from '@/app/components/About/TeamGrid';
+import TeamSectionToggle from '@/app/components/About/TeamSectionToggle';
+import Link from 'next/link';
 
 export default async function AboutPage({ params }) {
   const { locale } = await params;
-  const { t, resources } = await initTranslations(locale, ['common']);
-  const i18nNamespace = ['common'];
+  const { t, resources } = await initTranslations(locale, ['about']);
+  const i18nNamespace = ['about'];
+
+  const {
+    Banner,
+    Mission,
+    Vision,
+    Dm_team,
+    Founding_group,
+    Advisory_board,
+    Dm_team_icon,
+    Advisory_team_icon,
+    Founding_team_icon,
+  } = await getAboutContentGraphQL(locale);
 
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto min-h-screen max-w-[2048px]">
-        <div>About Page</div>
+        <Image
+          src={getImageUrl(Banner.url)}
+          alt="About Banner"
+          width={Banner.width}
+          height={Banner.height}
+          className="w-[2048px]"
+        />
+
+        <section className="mx-auto mt-10 mb-40 w-3/5">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] lg:text-5xl dark:text-[#1e7470]">
+            {t('mission')}
+          </h1>
+          <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Mission}</p>
+        </section>
+        <section className="mx-auto mt-10 mb-20 w-3/5">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] lg:text-5xl dark:text-[#1e7470]">
+            {t('vision')}
+          </h1>
+          <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Vision}</p>
+        </section>
+        <section>
+          <div className="mb-8 flex items-center justify-center gap-2">
+            <Image
+              src={getImageUrl(Dm_team_icon.url)}
+              alt={Dm_team_icon.caption || 'DataMares Team'}
+              width={Dm_team_icon.width}
+              height={Dm_team_icon.height}
+              className="h-15 w-15"
+            />
+            <h1 className="text-2xl font-bold text-[#125451] dark:text-[#1e7470]">DATAMARES</h1>
+          </div>
+          <TeamGrid members={Dm_team} />
+        </section>
+
+        <TeamSectionToggle
+          icon={getImageUrl(Advisory_team_icon.url)}
+          iconAlt={Advisory_team_icon.caption || 'Advisory Board'}
+          iconCaption={Advisory_team_icon.caption}
+          iconWidth={Advisory_team_icon.width}
+          iconHeight={Advisory_team_icon.height}
+          title={t('advisory_board')}
+          widthSection={'w-3/5'}
+          widthPerImage={250}
+          members={Advisory_board}
+          labelId="advisory-board-grid"
+        />
+        <TeamSectionToggle
+          icon={getImageUrl(Founding_team_icon.url)}
+          iconAlt={Founding_team_icon.caption || 'Founding Group'}
+          iconCaption={Founding_team_icon.caption}
+          iconWidth={Founding_team_icon.width}
+          iconHeight={Founding_team_icon.height}
+          widthSection={'w-4/5'}
+          widthPerImage={250}
+          title={t('founding_group')}
+          members={Founding_group}
+          labelId="founding-group-grid"
+        />
+
+        <section>
+          <Link href="mailto:catalina@gocmarineprogram.org">
+            <h2 className="mx-auto mb-10 w-1/5 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
+              {t('contact_us')}
+            </h2>
+          </Link>
+
+          <Link href="/partners_&_collaborators">
+            <h2 className="mx-auto mb-20 w-1/5 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
+              {t('partner_and_collaborators')}
+            </h2>
+          </Link>
+        </section>
       </main>
     </TranslationsProvider>
   );

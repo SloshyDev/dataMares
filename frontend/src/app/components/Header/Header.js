@@ -17,7 +17,7 @@ export default function Header() {
     useMobileMenuNavigation(menuData);
 
   return (
-    <header className="sticky top-0 z-50 mb-5 border-b-2 border-gray-300 bg-zinc-100 transition-colors duration-300 dark:border-gray-700 dark:bg-zinc-800">
+    <header className="sticky top-0 z-50 border-b-2 border-gray-300 bg-zinc-100 transition-colors duration-300 dark:border-gray-700 dark:bg-zinc-800">
       <div className="mx-auto max-w-[2048px]">
         <nav className="flex w-full items-center justify-between px-4 py-2">
           <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />

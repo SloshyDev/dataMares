@@ -1,3 +1,42 @@
+export async function generateMetadata({ params }) {
+  const { locale } = params;
+  // Puedes personalizar estos textos o hacerlos dinámicos con traducción si lo deseas
+  return {
+    title: locale === 'es' ? 'Sobre DataMares' : 'About DataMares',
+    description:
+      locale === 'es'
+        ? 'Conoce la misión, visión y el equipo detrás de DataMares.'
+        : 'Learn about the mission, vision, and the team behind DataMares.',
+    openGraph: {
+      title: locale === 'es' ? 'Sobre DataMares' : 'About DataMares',
+      description:
+        locale === 'es'
+          ? 'Conoce la misión, visión y el equipo detrás de DataMares.'
+          : 'Learn about the mission, vision, and the team behind DataMares.',
+      url: `https://yokaicdmx.com/${locale}/about`,
+      siteName: 'DataMares',
+      images: [
+        {
+          url: '/public/Logos/dm_full.svg',
+          width: 1200,
+          height: 630,
+          alt: 'DataMares',
+        },
+      ],
+      locale,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: locale === 'es' ? 'Sobre DataMares' : 'About DataMares',
+      description:
+        locale === 'es'
+          ? 'Conoce la misión, visión y el equipo detrás de DataMares.'
+          : 'Learn about the mission, vision, and the team behind DataMares.',
+      images: ['/public/Logos/dm_full.svg'],
+    },
+  };
+}
 import React from 'react';
 import TranslationsProvider from '../../components/TranslationsProvides';
 import initTranslations from '../../i18n';

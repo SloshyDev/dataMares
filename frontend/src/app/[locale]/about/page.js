@@ -1,5 +1,6 @@
 export async function generateMetadata({ params }) {
-  const { locale } = params;
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
   // Puedes personalizar estos textos o hacerlos dinámicos con traducción si lo deseas
   return {
     title: locale === 'es' ? 'Sobre DataMares' : 'About DataMares',
@@ -75,14 +76,14 @@ export default async function AboutPage({ params }) {
           className="w-[2048px]"
         />
 
-        <section className="mx-auto mt-10 mb-40 w-3/5">
-          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] lg:text-5xl dark:text-[#1e7470]">
+        <section className="mx-4 mt-10 lg:mx-auto lg:mb-40 lg:w-3/5">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-5xl dark:text-[#1e7470]">
             {t('mission')}
           </h1>
           <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Mission}</p>
         </section>
-        <section className="mx-auto mt-10 mb-20 w-3/5">
-          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] lg:text-5xl dark:text-[#1e7470]">
+        <section className="mx-4 mt-10 mb-20 lg:mx-auto lg:w-3/5">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-5xl dark:text-[#1e7470]">
             {t('vision')}
           </h1>
           <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Vision}</p>
@@ -128,13 +129,13 @@ export default async function AboutPage({ params }) {
 
         <section>
           <Link href="mailto:catalina@gocmarineprogram.org">
-            <h2 className="mx-auto mb-10 w-1/5 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
+            <h2 className="mx-auto mb-10 w-11/12 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] lg:w-1/5 dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
               {t('contact_us')}
             </h2>
           </Link>
 
           <Link href="/partners_&_collaborators">
-            <h2 className="mx-auto mb-20 w-1/5 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
+            <h2 className="mx-auto mb-20 w-11/12 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] lg:w-1/5 dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
               {t('partner_and_collaborators')}
             </h2>
           </Link>

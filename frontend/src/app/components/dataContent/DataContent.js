@@ -17,7 +17,6 @@ export default function DataContent({ content, locale }) {
 
   // URL de la página actual para compartir (solo en cliente)
   const [shareUrl, setShareUrl] = useState('');
-  const [countdown, setCountdown] = useState(5);
   const [itsLargePoster, setItsLargePoster] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ export default function DataContent({ content, locale }) {
 
   return (
     <div
-      className={`mx-auto mb-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? (itsLargePoster ? 'lg:grid-cols-1' : 'lg:grid-cols-2') : 'lg:grid-cols-1'}`}
+      className={`mx-auto my-5 grid w-11/12 max-w-[2048px] grid-cols-1 gap-8 lg:w-auto ${dataContent.PDF?.url ? (itsLargePoster ? 'lg:grid-cols-1' : 'lg:grid-cols-2') : 'lg:grid-cols-1'}`}
     >
       <div className={` ${!dataContent.PDF?.url || itsLargePoster ? 'mx-auto lg:w-3/4' : 'lg:order-1 lg:px-8'}`}>
         <h1 className="text-center font-myriad-condensed text-3xl font-black text-[#125451] lg:text-5xl dark:text-[#1e7470]">

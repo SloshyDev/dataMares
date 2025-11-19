@@ -50,7 +50,7 @@ export default async function getNewsDataGraphQL(localeParam) {
   const data = json.data || {};
 
   const result = {
-    Banners: data.newsGallery?.Banners || null,
+    Banners: data.newsGallery?.Banners || [],
   };
 
   return result;

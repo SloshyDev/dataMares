@@ -14,11 +14,17 @@ export default async function page({ params }) {
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto mb-5 min-h-screen max-w-[2048px]">
-        {Banners.map((banner, index) => (
-          <div key={index} className="">
-            <ImageWithLink link={banner.Link} image={banner.Image} altText={banner.Title} />
+        {Banners && Banners.length > 0 ? (
+          Banners.map((banner, index) => (
+            <div key={index} className="">
+              <ImageWithLink link={banner.Link} image={banner.Image} altText={banner.Title} />
+            </div>
+          ))
+        ) : (
+          <div className="flex min-h-[50vh] items-center justify-center">
+            <p className="text-xl text-gray-500 dark:text-gray-400">No news available</p>
           </div>
-        ))}
+        )}
       </main>
     </TranslationsProvider>
   );

@@ -128,12 +128,6 @@ export default async function AboutPage({ params }) {
         />
 
         <section>
-          <Link href="mailto:catalina@gocmarineprogram.org">
-            <h2 className="mx-auto mb-10 w-11/12 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] lg:w-1/5 dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
-              {t('contact_us')}
-            </h2>
-          </Link>
-
           <Link href="/partners_&_collaborators">
             <h2 className="mx-auto mb-20 w-11/12 rounded-lg bg-[#699b46] py-2 text-center text-2xl font-bold text-white transition-colors duration-300 hover:bg-[#5a8a3d] lg:w-1/5 dark:bg-[#1e7470] hover:dark:bg-[#175a56]">
               {t('partner_and_collaborators')}

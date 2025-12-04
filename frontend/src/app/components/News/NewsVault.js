@@ -14,13 +14,13 @@ export default function NewsVault({ News_vault }) {
         alt=""
       />
       <div className="hidden min-h-[25vw] w-15 bg-[#c4cc2d] xl:block"></div>
-      <div className="mx-auto w-11/12 pb-4 xl:px-6 2xl:px-12">
+      <div className="mx-2 pb-4 md:mx-auto md:w-11/12 xl:px-6 2xl:px-12">
         <h1 className="my-5 px-8 text-center font-myriad-condensed text-6xl leading-12 font-bold text-[#c4cc2d] uppercase transition-transform lg:text-5xl xl:text-6xl">
           {t('news_vault')}
         </h1>
         <section className="NewsVaultScrollBar max-h-115 overflow-y-scroll md:pr-2">
           {News_vault.map((newsItem, index) => (
-            <div key={index} className="group mb-6 grid grid-cols-8">
+            <div key={index} className="group mx-2 mb-6 grid grid-cols-8 md:mx-0">
               <ArrowIcon className="xl:10 z-10 m-auto mr-4 w-8 transition-transform group-hover:scale-105 md:z-auto lg:w-9 2xl:w-12" />
               <div className="group col-span-7">
                 <a

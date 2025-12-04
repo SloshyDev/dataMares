@@ -1,30 +1,27 @@
 import getNewsDataGraphQL from '@/app/api/news/getNewsDataGrapQL';
-import ImageWithLink from '@/app/components/Common/ImageWithLink';
+import BannersSection from '@/app/components/News/Banners';
+import LeftSide from '@/app/components/News/LeftSide';
+import RightSide from '@/app/components/News/RightSide';
 import TranslationsProvider from '@/app/components/TranslationsProvides';
 import initTranslations from '@/app/i18n';
 import React from 'react';
 
 export default async function page({ params }) {
   const { locale } = await params;
-  const { t, resources } = await initTranslations(locale, ['about']);
-  const i18nNamespace = ['about'];
+  const { t, resources } = await initTranslations(locale, ['news']);
+  const i18nNamespace = ['news'];
 
-  const { Banners } = await getNewsDataGraphQL(locale);
+  const { Banners, News_vault, Dispatch, PublicationsPromo } = await getNewsDataGraphQL(locale);
 
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto mb-5 min-h-screen max-w-[2048px]">
-        {Banners && Banners.length > 0 ? (
-          Banners.map((banner, index) => (
-            <div key={index} className="">
-              <ImageWithLink link={banner.Link} image={banner.Image} altText={banner.Title} />
-            </div>
-          ))
-        ) : (
-          <div className="flex min-h-[50vh] items-center justify-center">
-            <p className="text-xl text-gray-500 dark:text-gray-400">No news available</p>
-          </div>
-        )}
+        <BannersSection Banners={Banners} />
+        <section className="mx-4 justify-center lg:flex">
+          <LeftSide News_vault={News_vault} Dispatch={Dispatch} PublicationsPromo={PublicationsPromo} />
+          <div className="mx-2 w-2 bg-[#00302e]"></div>
+          <RightSide />
+        </section>
       </main>
     </TranslationsProvider>
   );

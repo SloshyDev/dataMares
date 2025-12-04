@@ -24,19 +24,46 @@ export default async function getNewsDataGraphQL(localeParam) {
   // Always fetch fresh data
   const query = `
     query NEWS_CONTENT {
-    newsGallery(locale: "${locale}") {
-    Banners {
-      Title
-      Link
-      TypeOfLink
-        Image {
+      newsGallery(locale: "${locale}") {
+        News_vault {
+          Link
+          Source
+          Tittle
+        }
+        Banners {
+          Title
+          Link
+          TypeOfLink
+          Image {
             width
             url
             height
-            }
+          }
+        }
+        Dispatch {
+          Image {
+            url
+            width
+            height
+          }
+          Link
+          Title
+          TypeOfLink
+        }
+        PublicationsPromo {
+          Content
+          Title
+          Link
+          Image {
+            url
+            width
+            height
+            size
+          }
         }
       }
     }
+    
   `;
 
   const res = await fetch(API_URL, {
@@ -51,6 +78,9 @@ export default async function getNewsDataGraphQL(localeParam) {
 
   const result = {
     Banners: data.newsGallery?.Banners || [],
+    News_vault: data.newsGallery?.News_vault || [],
+    Dispatch: data.newsGallery?.Dispatch || {},
+    PublicationsPromo: data.newsGallery?.PublicationsPromo || [],
   };
 
   return result;

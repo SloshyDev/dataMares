@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 import Footer from '../components/Footer/Footer';
 import { Analytics } from '@vercel/analytics/next';
+import BreakpointIndicator from '../components/Common/BreakpointIndicator';
 
 const validLocales = ['en', 'es'];
 
@@ -149,6 +150,7 @@ export default async function RootLayout({ children, params }) {
               <Footer />
             </section>
             <Analytics />
+            <BreakpointIndicator />
           </TranslationsProvider>
         </ThemeProvider>
       </body>

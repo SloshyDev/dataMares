@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function BreakpointIndicator() {
   const [breakpoint, setBreakpoint] = useState('');
   const [prevBreakpoint, setPrevBreakpoint] = useState('');
+  const [currentWidth, setCurrentWidth] = useState(0);
 
   useEffect(() => {
     // Solo mostrar en desarrollo
@@ -24,6 +25,7 @@ export default function BreakpointIndicator() {
       const current = getBreakpoint();
       setPrevBreakpoint(breakpoint);
       setBreakpoint(current);
+      setCurrentWidth(window.innerWidth);
     };
 
     // Establecer breakpoint inicial
@@ -58,12 +60,13 @@ export default function BreakpointIndicator() {
 
   return (
     <div
-      className={`fixed right-4 bottom-4 z-[9999] rounded-lg ${breakpointColors[breakpoint]} px-4 py-2 text-white shadow-lg transition-all duration-300`}
+      className={`fixed bottom-4 left-4 z-[9999] rounded-lg ${breakpointColors[breakpoint]} px-4 py-2 text-white shadow-lg transition-all duration-300`}
     >
       <div className="flex items-center gap-2">
         <span className="text-lg font-bold">{breakpoint.toUpperCase()}</span>
         <span className="text-sm opacity-90">{breakpointWidths[breakpoint]}</span>
       </div>
+      <div className="mt-1 text-sm font-semibold">Actual: {currentWidth}px</div>
       {prevBreakpoint && prevBreakpoint !== breakpoint && (
         <div className="mt-1 text-xs opacity-75">Cambió de: {prevBreakpoint.toUpperCase()}</div>
       )}

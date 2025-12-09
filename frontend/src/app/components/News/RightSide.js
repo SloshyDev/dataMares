@@ -1,5 +1,12 @@
 import React from 'react';
+import Interviews from './Interviews';
 
 export default function RightSide() {
-  return <section className="mx-auto w-[48%] pt-8">RightSide</section>;
+  return (
+    <section className="py-12 lg:mx-auto lg:w-[48%]">
+      <div className="mx-auto lg:w-4/5">
+        <Interviews />
+      </div>
+    </section>
+  );
 }

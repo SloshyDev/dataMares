@@ -17,6 +17,9 @@
 
 @theme {
   --font-myriad-condensed: "myriad-pro-condensed", sans-serif;
+  --breakpoint-screen: 115rem;
+  --breakpoint-wide: 96rem;
+  --breakpoint-wide-screen: 127rem;
 }
 
 body {

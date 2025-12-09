@@ -9,7 +9,7 @@ export default function PromoMagazine({ PublicationsPromo }) {
   return (
     <section className="mt-9 overflow-hidden rounded-2xl bg-[#00302e] pt-4">
       <div className="">
-        <h1 className="mx-4 rounded-xl bg-linear-to-b from-[#b9b532] to-[#267571] py-4 text-center font-myriad-condensed text-5xl leading-none font-black text-white uppercase lg:text-3xl xl:text-4xl 2xl:text-5xl">
+        <h1 className="mx-4 rounded-xl bg-linear-to-b from-[#b9b532] to-[#267571] py-4 text-center font-myriad-condensed text-5xl leading-none font-black text-white uppercase xl:text-6xl 2xl:text-7xl">
           {t('promo_magazine')}
         </h1>
         <div className="font-myriad-pro my-4 text-center text-4xl leading-none font-black text-white md:mx-4 lg:text-3xl xl:text-4xl 2xl:text-5xl">
@@ -21,7 +21,7 @@ export default function PromoMagazine({ PublicationsPromo }) {
           </a>
         </div>
         <div className="bg-[#669740]">
-          <p className="p-4 text-center font-myriad-condensed text-3xl font-light text-white md:px-12 md:py-8 lg:text-2xl lg:leading-6 xl:text-3xl xl:leading-8">
+          <p className="p-4 text-center font-myriad-condensed text-3xl font-light text-white md:px-10 md:py-8 lg:text-2xl lg:leading-6 xl:text-4xl xl:leading-8">
             {PublicationsPromo.Content}
           </p>
           <a href={PublicationsPromo.Link} className="group" target="_blank" rel="noopener noreferrer">

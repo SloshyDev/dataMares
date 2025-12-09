@@ -7,7 +7,7 @@ export default function BannersSection({ Banners }) {
       {Banners && Banners.length > 0 ? (
         Banners.map((banner, index) => (
           <div key={index} className="">
-            <ImageWithLink link={banner.Link} image={banner.Image} altText={banner.Title} />
+            <ImageWithLink unoptimized={true} link={banner.Link} image={banner.Image} altText={banner.Title} />
           </div>
         ))
       ) : (

@@ -18,7 +18,9 @@ export default function BreakpointIndicator() {
       if (width >= 768 && width < 1024) return 'md';
       if (width >= 1024 && width < 1280) return 'lg';
       if (width >= 1280 && width < 1536) return 'xl';
-      return '2xl';
+      if (width >= 1536 && width < 1840) return 'wide';
+      if (width >= 1840 && width < 2032) return 'screen';
+      return 'wide-screen';
     };
 
     const updateBreakpoint = () => {
@@ -46,7 +48,9 @@ export default function BreakpointIndicator() {
     md: 'bg-yellow-500',
     lg: 'bg-green-500',
     xl: 'bg-blue-500',
-    '2xl': 'bg-purple-500',
+    wide: 'bg-purple-500',
+    screen: 'bg-pink-500',
+    'wide-screen': 'bg-indigo-500',
   };
 
   const breakpointWidths = {
@@ -55,12 +59,14 @@ export default function BreakpointIndicator() {
     md: '≥ 768px',
     lg: '≥ 1024px',
     xl: '≥ 1280px',
-    '2xl': '≥ 1536px',
+    wide: '≥ 1536px',
+    screen: '≥ 1840px',
+    'wide-screen': '≥ 2032px',
   };
 
   return (
     <div
-      className={`fixed bottom-4 left-4 z-[9999] rounded-lg ${breakpointColors[breakpoint]} px-4 py-2 text-white shadow-lg transition-all duration-300`}
+      className={`fixed bottom-4 left-4 z-9999 rounded-lg ${breakpointColors[breakpoint]} px-4 py-2 text-white shadow-lg transition-all duration-300`}
     >
       <div className="flex items-center gap-2">
         <span className="text-lg font-bold">{breakpoint.toUpperCase()}</span>

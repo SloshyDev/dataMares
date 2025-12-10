@@ -5,8 +5,8 @@ import PromoMagazine from './PromoMagazine';
 
 export default function LeftSide({ News_vault, Dispatch, PublicationsPromo }) {
   return (
-    <section className="py-12 lg:mx-auto lg:w-[48%]">
-      <div className="mx-auto lg:w-4/5">
+    <section className="py-12 md:mx-8 xl:mx-auto xl:w-[48%]">
+      <div className="mx-auto xl:w-4/5">
         <NewsVault News_vault={News_vault} />
         {/* Sustainability Dispatch */}
         <ImageWithLink

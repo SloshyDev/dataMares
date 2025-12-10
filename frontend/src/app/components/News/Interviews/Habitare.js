@@ -19,14 +19,14 @@ export default function Habitare() {
               <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[1.6rem] screen:text-[2rem] wide-screen:text-[2.2rem]">
                 CREATIVIDAD EN UNA INFOGRAFÍA
               </h1>
-              <p className="mt-2 flex justify-between font-myriad-condensed text-3xl leading-none font-black text-[#d0d001] wide:text-[1.4rem] screen:text-[1.9rem] wide-screen:text-[2.2rem]">
+              <p className="mt-2 flex items-center justify-between pb-4 font-myriad-condensed text-3xl leading-none font-black text-[#d0d001] xl:pb-4 wide:pb-0 wide:text-[1.4rem] screen:text-[1.9rem] wide-screen:text-[2.2rem]">
                 ENTREVISTAS CON
                 <br />
                 dataMares
                 <a href="https://www.youtube.com/watch?v=BuPTrRV5jJM" className="group" target="_blank" rel="noopener noreferrer">
-                  <h1 className="w-fit overflow-hidden rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#267571] to-[#b9b532] px-6 py-1 font-myriad-condensed text-2xl font-bold text-white transition-colors duration-300 group-hover:from-[#b9b532] group-hover:to-[#267571] wide:text-[1.5rem] wide-screen:text-4xl">
+                  <span className="w-fit overflow-hidden rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#267571] to-[#b9b532] px-6 py-1 font-myriad-condensed text-2xl font-bold text-white transition-colors duration-300 group-hover:from-[#b9b532] group-hover:to-[#267571] wide:text-[1.5rem] wide-screen:text-4xl">
                     {t('listen')}
-                  </h1>
+                  </span>
                 </a>
               </p>
             </div>

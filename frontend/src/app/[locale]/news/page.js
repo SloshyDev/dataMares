@@ -17,7 +17,7 @@ export default async function page({ params }) {
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto mb-5 min-h-screen max-w-[2048px]">
         <BannersSection Banners={Banners} />
-        <section className="mx-2 justify-center lg:flex">
+        <section className="justify-center xl:flex">
           <LeftSide News_vault={News_vault} Dispatch={Dispatch} PublicationsPromo={PublicationsPromo} />
           <div className="mx-2 w-2 bg-[#00302e]"></div>
           <RightSide />

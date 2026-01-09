@@ -127,6 +127,7 @@ export default async function getHomeContentsGraphQL(localeParam) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query }),
+    next: { revalidate: 60 },
   });
 
   const { data } = await res.json();
@@ -139,6 +140,6 @@ export default async function getHomeContentsGraphQL(localeParam) {
     carrousel_data: data?.home?.Carrousel ?? [],
     promos_data: data?.home?.Promos ?? [],
   };
-  // No caching, always return fresh result
+  
   return result;
 }

@@ -2,7 +2,7 @@ import '@/app/globals.css';
 import Header from '../components/Header/Header';
 import TranslationsProvider from '../components/TranslationsProvides';
 import initTranslations from '../i18n';
-import { ThemeProvider } from 'next-themes';
+import { Providers } from '../Providers';
 import { notFound } from 'next/navigation';
 import Footer from '../components/Footer/Footer';
 import { Analytics } from '@vercel/analytics/next';
@@ -142,7 +142,7 @@ export default async function RootLayout({ children, params }) {
         />
       </head>
       <body className={`antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Providers>
           <TranslationsProvider resources={resources} locale={locale} namespaces={['header', 'not-found']}>
             <section className="mx-auto flex min-h-screen flex-col justify-between">
               <Header />
@@ -152,7 +152,7 @@ export default async function RootLayout({ children, params }) {
             <Analytics />
             <BreakpointIndicator />
           </TranslationsProvider>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

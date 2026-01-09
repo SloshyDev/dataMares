@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import CatalinaRadioChapingo from './Interviews/CatalinaRadioChapingo';
 import Habitare from './Interviews/Habitare';
 import BasicCardNew from './Interviews/BasicCardNew';
+import CatalinaLaPandilla from './Interviews/CatalinaLaPandilla';
 
 export default function Interviews() {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ export default function Interviews() {
         </h1>
         <MicIcon className="relative -top-30 left-8 w-25" />
       </div>
-      <section className="md:mx-10">
+      <section className="md:mx-5">
         <CatalinaRadioChapingo />
         <Habitare />
         <BasicCardNew
@@ -42,6 +43,15 @@ export default function Interviews() {
           image="https://datamares.org/wp-content/uploads/2024/09/La-ciencia-que-somos.webp"
           textLink="VIDEO"
         />
+        <BasicCardNew
+          className="py-4"
+          title="Podcast Radio UNAM"
+          content="This content was originally taken from the official site of Radio UNAM. Our director talks about access to information and the efforts of dataMares."
+          link="https://example.com"
+          image="https://api.yokaicdmx.com/uploads/Radio_Unam_Icom_b148131de1.svg"
+          textLink="LISTEN"
+        />
+        <CatalinaLaPandilla />
       </section>
     </div>
   );

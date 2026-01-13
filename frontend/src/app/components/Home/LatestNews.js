@@ -21,7 +21,7 @@ export default function LatestNews({ contents, ...props }) {
       </div>
       <Link
         href="/news"
-        className="mt-4 block rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#1b685f] from-18% to-[#c4cc2d] py-1.5 text-center font-myriad-condensed text-2xl text-white uppercase transition-all duration-300 hover:scale-105"
+        className="mt-4 block rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#1b685f] from-18% to-[#c4cc2d] py-1.5 text-center font-myriad-condensed text-2xl font-bold text-white uppercase transition-all duration-300 hover:scale-105"
       >
         {t('see_all_news')}
       </Link>

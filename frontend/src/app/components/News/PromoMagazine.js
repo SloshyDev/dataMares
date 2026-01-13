@@ -15,7 +15,7 @@ export default function PromoMagazine({ PublicationsPromo }) {
             <h1 className="mt-4 text-5xl text-white uppercase transition-transform duration-300 group-hover:scale-105 lg:text-4xl xl:text-5xl">
               {t('new_section')}
             </h1>
-            <h2 className="pb-8 text-7xl leading-20 font-black text-[#1b75bb] decoration-white decoration-2 group-hover:underline wide:text-8xl screen:px-5 screen:text-8xl wide-screen:text-9xl wide-screen:leading-25">
+            <h2 className="pb-8 text-7xl leading-20 font-black text-[#1b75bb] decoration-white decoration-2 group-hover:underline wide:text-8xl screen:px-5 screen:text-9xl screen:leading-25">
               {PublicationsPromo.Title}
             </h2>
           </a>

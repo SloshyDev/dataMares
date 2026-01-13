@@ -16,10 +16,10 @@ export default function Habitare() {
           <div className="ml-8">
             <img src="https://api.yokaicdmx.com/uploads/Habitare_Icon_79672c44ff.png" alt="Habitare Logo" className="mb-4 w-65" />
             <div className="w-full">
-              <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[1.6rem] screen:text-[2rem] wide-screen:text-[2.2rem]">
+              <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[1.6rem] screen:text-[2.3rem]">
                 CREATIVIDAD EN UNA INFOGRAFÍA
               </h1>
-              <p className="mt-2 flex items-center justify-between pb-4 font-myriad-condensed text-3xl leading-none font-black text-[#d0d001] xl:pb-4 wide:pb-0 wide:text-[1.4rem] screen:text-[1.9rem] wide-screen:text-[2.2rem]">
+              <p className="mt-2 flex items-center justify-between pb-4 font-myriad-condensed text-[2rem] leading-none font-black text-[#d0d001] xl:pb-4 wide:pb-0">
                 ENTREVISTAS CON
                 <br />
                 dataMares

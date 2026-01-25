@@ -21,12 +21,12 @@ export default function TeamSectionToggle({
       <div className="">
         <button
           type="button"
-          className="mx-auto flex items-center gap-2 pb-8 focus:outline-none"
+          className="mx-auto flex items-center gap-2 pb-8 transition-transform hover:scale-105 focus:outline-none"
           aria-expanded={open}
           aria-controls={labelId}
           onClick={() => setOpen((v) => !v)}
         >
-          <Image src={icon} alt={iconAlt || title} width={iconWidth} height={iconHeight} className="h-15 w-15" />
+          <Image src={icon} alt={iconAlt || title} width={iconWidth} height={iconHeight} className="h-[3.12vw] w-[3.12vw]" />
           <h1 className="text-2xl font-bold text-[#125451] dark:text-[#1e7470]">{title}</h1>
         </button>
         <div

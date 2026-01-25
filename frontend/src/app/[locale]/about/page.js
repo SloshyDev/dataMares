@@ -76,17 +76,21 @@ export default async function AboutPage({ params }) {
           className="w-[2048px]"
         />
 
-        <section className="mx-4 mt-10 lg:mx-auto lg:mb-40 lg:w-3/5">
-          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-5xl dark:text-[#1e7470]">
+        <section className="mx-4 mt-10 lg:mx-auto lg:mb-30 lg:w-3/5">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-[2.5vw] screen:text-[3rem] dark:text-[#1e7470]">
             {t('mission')}
           </h1>
-          <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Mission}</p>
+          <p className="mb-16 text-center text-xl leading-7 text-[#333333] lg:text-[1vw] screen:text-[1.25rem] dark:text-[#dddddd]">
+            {Mission}
+          </p>
         </section>
         <section className="mx-4 mt-10 mb-20 lg:mx-auto lg:w-3/5">
-          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-5xl dark:text-[#1e7470]">
+          <h1 className="mb-10 text-center text-2xl leading-7 font-bold text-[#125451] uppercase lg:text-[2.5vw] screen:text-[3rem] dark:text-[#1e7470]">
             {t('vision')}
           </h1>
-          <p className="mb-16 text-center text-xl leading-7 text-[#333333] dark:text-[#dddddd]">{Vision}</p>
+          <p className="mb-16 text-center text-xl leading-7 text-[#333333] lg:text-[1vw] screen:text-[1.25rem] dark:text-[#dddddd]">
+            {Vision}
+          </p>
         </section>
         <section>
           <div className="mb-8 flex items-center justify-center gap-2">
@@ -95,9 +99,11 @@ export default async function AboutPage({ params }) {
               alt={Dm_team_icon.caption || 'DataMares Team'}
               width={Dm_team_icon.width}
               height={Dm_team_icon.height}
-              className="h-15 w-15"
+              className="h-[3.12vw] w-[3.12vw]"
             />
-            <h1 className="text-2xl font-bold text-[#125451] dark:text-[#1e7470]">DATAMARES</h1>
+            <h1 className="text-2xl font-bold text-[#125451] lg:text-[1.25vw] screen:text-[1.5rem] dark:text-[#1e7470]">
+              DATAMARES
+            </h1>
           </div>
           <TeamGrid members={Dm_team} />
         </section>
@@ -110,7 +116,7 @@ export default async function AboutPage({ params }) {
           iconHeight={Advisory_team_icon.height}
           title={t('advisory_board')}
           widthSection={'w-3/5'}
-          widthPerImage={250}
+          widthPerImage={'lg:w-[12.68vw] screen:w-[15.68rem]'}
           members={Advisory_board}
           labelId="advisory-board-grid"
         />
@@ -121,7 +127,7 @@ export default async function AboutPage({ params }) {
           iconWidth={Founding_team_icon.width}
           iconHeight={Founding_team_icon.height}
           widthSection={'w-4/5'}
-          widthPerImage={250}
+          widthPerImage={'lg:w-[12.68vw] screen:w-[15.68rem]'}
           title={t('founding_group')}
           members={Founding_group}
           labelId="founding-group-grid"

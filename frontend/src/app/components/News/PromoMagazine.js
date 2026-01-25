@@ -12,7 +12,7 @@ export default function PromoMagazine({ PublicationsPromo }) {
       <div className="rounded-lg bg-linear-to-b from-[#001234] to-[#033689] pt-8">
         <div className="font-myriad-pro mb-4 text-center text-4xl leading-none font-black text-white md:mx-4 lg:text-3xl xl:text-4xl 2xl:text-5xl">
           <a href={PublicationsPromo.Link} className="group font-myriad-condensed" target="_blank" rel="noopener noreferrer">
-            <h1 className="mt-4 text-5xl text-white uppercase transition-transform duration-300 group-hover:scale-105 lg:text-4xl xl:text-5xl">
+            <h1 className="mt-4 text-5xl text-white uppercase transition-transform duration-300 group-hover:scale-105 lg:text-[2.5vw] screen:text-[3rem]">
               {t('new_section')}
             </h1>
             <h2 className="pb-8 text-7xl leading-20 font-black text-[#1b75bb] decoration-white decoration-2 group-hover:underline wide:text-8xl screen:px-5 screen:text-9xl screen:leading-25">

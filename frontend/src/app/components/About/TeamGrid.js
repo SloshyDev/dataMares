@@ -11,10 +11,10 @@ export default function TeamGrid({ members, widthPerImage, width }) {
             <Image
               unoptimized
               src={getImageUrl(member.url)}
+              className={`h-auto ${widthPerImage ? widthPerImage : 'lg:w-[15.68vw] screen:w-[18.68rem]'}`}
               alt={member.caption || 'Team Member'}
               width={member.width}
               height={member.height}
-              style={{ width: widthPerImage }}
             />
           </div>
         ))}

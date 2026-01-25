@@ -15,6 +15,10 @@
   --foreground: #ededed;
 }
 
+.splide__slide{
+  @apply rounded-[.83vw]
+}
+
 @theme {
   --font-myriad-condensed: "myriad-pro-condensed", sans-serif;
   --breakpoint-screen: 115rem;
@@ -33,8 +37,8 @@ body {
 
 
 .NewsVaultScrollBar {
-  --sb-track-color: #00211f;
-  --sb-thumb-color: #166561;
+  --sb-track-color: #002422;
+  --sb-thumb-color: #c4cc2d;
   --sb-size: 8px;
 }
 
@@ -44,12 +48,12 @@ body {
 
 .NewsVaultScrollBar::-webkit-scrollbar-track {
   background: var(--sb-track-color);
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 .NewsVaultScrollBar::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
-  border-radius: 6px;
+  border-radius: 3px;
   
 }
 

@@ -23,20 +23,6 @@ export default function PromosCarrousel({ contents }) {
         pagination: true,
         rewind: true,
         interval: 4000,
-        perPage: 3,
-      },
-      768: {
-        autoplay: true,
-        pagination: true,
-        rewind: true,
-        interval: 4000,
-        perPage: 2,
-      },
-      640: {
-        autoplay: true,
-        pagination: true,
-        rewind: true,
-        interval: 4000,
         perPage: 1,
       },
     },
@@ -44,8 +30,10 @@ export default function PromosCarrousel({ contents }) {
 
   return (
     <section className="mt-8 bg-[#00302e] px-5 pb-8">
-      <h1 className="py-4 text-center font-myriad-condensed text-3xl font-black text-white uppercase">{t('most_recent')}</h1>
-      <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="My Favorite Images">
+      <h1 className="py-4 text-center font-myriad-condensed text-3xl font-black text-white uppercase lg:text-[1.56vw] screen:text-[1.88rem]">
+        {t('most_recent')}
+      </h1>
+      <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="Promos Carrousel">
         <SplideTrack>
           {(Array.isArray(contents) ? contents : []).flatMap((content, index) => {
             // Caso 1: ComponentDataContentDataContent (tiene data_contents array)
@@ -56,7 +44,7 @@ export default function PromosCarrousel({ contents }) {
                     slug={dataContent.Slug}
                     type="datacontent"
                     unoptimized={true}
-                    className="w-full rounded-2xl"
+                    className="w-full rounded-2xl hover:scale-[.98]"
                     image={dataContent.Promo}
                     altText={dataContent.Title}
                   />

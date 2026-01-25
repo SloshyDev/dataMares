@@ -21,7 +21,7 @@ export default async function Home({ params }) {
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto mt-5 min-h-screen max-w-[2048px]">
         <section className="mx-5 flex flex-col items-center justify-between gap-8 lg:flex-row">
-          <BannersCarrousel className="w-full lg:w-[73%]" contents={carrousel_data} />
+          <BannersCarrousel className="w-full lg:w-[74%]" contents={carrousel_data} />
           <LatestNews className="flex w-full flex-col justify-between lg:w-[25%]" contents={latest_news_data} />
         </section>
         <PromosCarrousel contents={promos_data} />

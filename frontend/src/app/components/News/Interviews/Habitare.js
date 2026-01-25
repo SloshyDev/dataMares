@@ -12,9 +12,15 @@ export default function Habitare() {
         className="flex h-full w-full items-center bg-cover bg-bottom pt-8"
       >
         <div className="mx-auto flex w-11/12">
-          <MicIcon className="hidden w-40 2xl:block" />
+          <MicIcon className="w-40 2xl:block" />
           <div className="ml-8">
-            <img src="https://api.yokaicdmx.com/uploads/Habitare_Icon_79672c44ff.png" alt="Habitare Logo" className="mb-4 w-65" />
+            <img
+              width={446}
+              height={165}
+              src="https://api.yokaicdmx.com/uploads/Habitare_Icon_e9c409897f.webp"
+              alt="Habitare Logo"
+              className="mb-4 w-65"
+            />
             <div className="w-full">
               <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[1.6rem] screen:text-[2.3rem]">
                 CREATIVIDAD EN UNA INFOGRAFÍA

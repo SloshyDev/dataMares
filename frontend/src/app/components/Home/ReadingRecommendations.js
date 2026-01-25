@@ -18,7 +18,7 @@ export default function ReadingRecommendations({ contents }) {
     pauseOnHover: true,
     pauseOnFocus: true,
     breakpoints: {
-      640: {
+      1024: {
         autoplay: true,
         pagination: true,
         rewind: true,
@@ -30,16 +30,16 @@ export default function ReadingRecommendations({ contents }) {
 
   return (
     <div className="px-5 py-8">
-      <h2 className="mb-8 text-center font-myriad-condensed text-3xl font-black text-[#166561] uppercase dark:text-white">
+      <h2 className="mb-8 text-center font-myriad-condensed text-3xl font-black text-[#166561] uppercase lg:text-[1.56vw] screen:text-[1.88rem] dark:text-white">
         {t('reading_recommendations')}...
       </h2>
-      <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="My Favorite Images">
+      <Splide options={SplideOptions} ref={splideRef} hasTrack={false} aria-label="Reading Recommendations">
         <SplideTrack>
           {(Array.isArray(contents) ? contents.slice(0, 4) : []).map((content, index) => (
             <SplideSlide key={content.documentId || index}>
               <ImageWithLink
                 unoptimized={true}
-                className="w-full rounded-2xl"
+                className="w-full rounded-2xl hover:scale-[.98]"
                 link={content.Link}
                 image={content.Image}
                 altText={content.Title}

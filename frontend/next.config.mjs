@@ -17,6 +17,9 @@ const nextConfig = {
       }
     ],
   },
+  turbopack: {
+    root: process.cwd(),
+  },
   // ...existing config
 };
 

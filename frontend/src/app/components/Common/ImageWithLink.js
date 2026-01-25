@@ -23,7 +23,7 @@ export default function ImageWithLink({ link, image, altText, unoptimized, slug,
 
   const imageElement = (
     <Image
-      className={`${props.className} transition-transform duration-300 ease-in-out hover:scale-[1.02]`}
+      className={`${props.className} transition-transform duration-300 ease-in-out`}
       {...(shouldUnopt && { unoptimized: true })}
       width={image.width}
       height={image.height}

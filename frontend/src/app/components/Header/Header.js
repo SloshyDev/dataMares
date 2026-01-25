@@ -1,13 +1,11 @@
 'use client';
 import React from 'react';
-import ThemeToggle from './ThemeToggle';
 import MobileMenuButton from './MobileMenuButton';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 import { useMenuData } from './useMenuData';
 import { useMobileMenuNavigation } from './useMobileMenuNavigation';
 import DmFullLogo from '@/assets/logos/dm_full';
-import DmMinLogo from '@/assets/logos/dm_min';
 import NavIcons from './NavIcons';
 import Link from 'next/link';
 
@@ -17,7 +15,7 @@ export default function Header() {
     useMobileMenuNavigation(menuData);
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-gray-300 bg-zinc-100 transition-colors duration-300 dark:border-gray-700 dark:bg-zinc-800">
+    <header className="sticky top-0 z-50 border-b-2 border-gray-300 bg-zinc-100 pt-2 transition-colors duration-300 lg:pt-0 dark:border-gray-700 dark:bg-zinc-800">
       <div className="mx-auto max-w-[2048px]">
         <nav className="flex w-full items-center justify-between px-4">
           <MobileMenuButton isMenuOpen={isMenuOpen} onClick={toggleMenu} />

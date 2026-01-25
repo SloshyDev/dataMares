@@ -49,6 +49,7 @@ export default function BannersCarrousel({ contents, ...props }) {
         {normalizedContents.map((item, index) => (
           <SplideSlide key={item.id || index}>
             <ImageWithLink
+              className="w-full rounded-2xl hover:scale-[1.02]"
               slug={item.slug}
               link={item.link}
               type={item.type}

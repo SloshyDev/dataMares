@@ -8,7 +8,7 @@ export default function LatestNews({ contents, ...props }) {
   return (
     <div className={`${props.className || ''}`}>
       <div className={`overflow-hidden rounded-lg border-x-4 border-t-4 border-b-4 border-[#00302e] 2xl:border-t-0`}>
-        <h2 className="block bg-[#00302e] py-1 text-center font-myriad-condensed text-3xl font-black text-[#c4cc2d] uppercase lg:hidden 2xl:block">
+        <h2 className="bg-[#00302e] py-1 text-center font-myriad-condensed text-3xl font-black text-[#c4cc2d] uppercase lg:text-[1.56vw] screen:text-[1.88rem]">
           {t('latest_news')}
         </h2>
         <ImageWithLink
@@ -21,7 +21,7 @@ export default function LatestNews({ contents, ...props }) {
       </div>
       <Link
         href="/news"
-        className="mt-4 block rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#1b685f] from-18% to-[#c4cc2d] py-1.5 text-center font-myriad-condensed text-2xl font-bold text-white uppercase transition-all duration-300 hover:scale-105"
+        className="mt-4 block rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#1b685f] from-18% to-[#c4cc2d] py-1.5 text-center font-myriad-condensed text-2xl font-bold text-white uppercase transition-all duration-300 hover:scale-105 lg:text-[1.25vw] screen:text-[1.50rem]"
       >
         {t('see_all_news')}
       </Link>

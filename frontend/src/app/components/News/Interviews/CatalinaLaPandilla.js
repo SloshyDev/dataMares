@@ -11,27 +11,38 @@ export default function CatalinaLaPandilla() {
         className="flex h-full w-full items-center bg-cover bg-bottom pt-8"
       >
         <div className="mx-2 flex">
-          <div className="flex justify-center">
-            <MicIcon className="hidden w-45 2xl:block" />
-            <img className="absolute mt-6 w-32" src="https://api.yokaicdmx.com/uploads/CATALINA_TEAM_96f6bae881.webp" alt="" />
+          <div className="">
+            <img
+              width={187}
+              height={272}
+              className="w-45"
+              src="https://api.yokaicdmx.com/uploads/Catalina_En_La_Pandilla_33793ff69b.webp"
+              alt=""
+            />
           </div>
           <div className="ml-3">
             <div className="w-full">
               <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[2.5rem] wide-screen:text-[2.5rem]">
                 Catalina López-Sagástegui
               </h1>
-              <p className="mt-2 flex items-center justify-between pb-4 text-3xl leading-none font-bold xl:pb-4 wide:pb-0 wide:text-[1.3rem]">
+              <p className="mt-2 flex items-center justify-between pb-4 text-3xl leading-none font-bold xl:pb-4 xl:text-xl wide:pb-0 wide:text-[1.3rem]">
                 EN EL PROGRAMA DE RADIO
               </p>
               <div className="mt-8 flex gap-8">
                 <img
-                  className="m-auto h-auto w-45"
-                  src="https://api.yokaicdmx.com/uploads/La_Pandilla_Icon_f439d475dc.png"
+                  width={284}
+                  height={225}
+                  className="m-auto h-auto w-38 rounded-md xl:block screen:w-45"
+                  src="https://api.yokaicdmx.com/uploads/La_pandilla_logo_d2365be503.webp"
                   alt=""
                 />
                 <div className="flex flex-col justify-center">
-                  <h2 className="text-center text-xl font-bold text-[#669b4f] wide:hidden screen:block">1 Y 2 DE FEBRERO 2025</h2>
-                  <h1 className="text-center text-2xl font-black text-white wide:hidden screen:block">¡NO TE LO PIERDAS!</h1>
+                  <h2 className="md text-center text-xl font-bold text-[#669b4f] xl:text-lg screen:block screen:text-xl">
+                    1 Y 2 DE FEBRERO 2025
+                  </h2>
+                  <h1 className="mb-2 text-center text-2xl font-black text-white xl:text-sm wide:text-2xl screen:block">
+                    ¡NO TE LO PIERDAS!
+                  </h1>
                   <a
                     href="https://www.youtube.com/watch?v=BuPTrRV5jJM"
                     className="group flex"

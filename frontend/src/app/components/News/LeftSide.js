@@ -10,7 +10,7 @@ export default function LeftSide({ News_vault, Dispatch, PublicationsPromo }) {
         <NewsVault News_vault={News_vault} />
         {/* Sustainability Dispatch */}
         <ImageWithLink
-          className="mx-auto mt-8 w-full rounded-2xl"
+          className="mx-auto mt-8 w-full rounded-2xl transition-transform duration-300 hover:scale-105"
           altText={Dispatch.Title}
           image={Dispatch.Image}
           isExternal={true}

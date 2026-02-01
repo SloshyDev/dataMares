@@ -11,14 +11,14 @@ import DatamaresLaPandilla from './Interviews/DatamaresLaPandilla';
 export default function Interviews() {
   const { t } = useTranslation();
   return (
-    <div className="mx-auto overflow-hidden rounded-2xl border-8 border-[#166561] bg-[#00302e] py-4">
-      <div className="h-40 w-full py-6">
-        <h1 className="mx-4 rounded-xl bg-linear-to-b from-[#b9b532] to-[#267571] py-4 text-center font-myriad-condensed text-5xl leading-14 font-black text-white uppercase xl:text-6xl 2xl:text-7xl">
+    <div className="overflow-hidden rounded-2xl border-8 border-[#166561] bg-[#00302e] py-4 lg:mx-auto">
+      <div className="h-40 w-full py-6 lg:h-[8.33vw] lg:py-[1.25vw] screen:h-40 screen:py-6">
+        <h1 className="mx-4 rounded-xl bg-linear-to-b from-[#b9b532] to-[#267571] py-4 text-center font-myriad-condensed text-6xl font-black text-white uppercase lg:py-[.83vw] lg:text-[3.12vw] screen:py-4 screen:text-[3.75rem]">
           {t('interviews')}
         </h1>
-        <MicIcon className="relative -top-30 left-8 w-25" />
+        <MicIcon className="relative -top-30 left-8 w-25 lg:-top-[6.25vw] lg:w-[5.21vw] screen:-top-30 screen:w-25" />
       </div>
-      <section className="NewsVaultScrollBar max-h-172 overflow-y-scroll md:mx-5 md:px-5">
+      <section className="NewsVaultScrollBar mx-2 max-h-172 overflow-y-scroll lg:mx-5 lg:px-5">
         <CatalinaRadioChapingo />
         <Habitare />
         <BasicCardNew

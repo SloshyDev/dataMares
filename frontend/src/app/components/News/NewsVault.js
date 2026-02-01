@@ -13,7 +13,7 @@ export default function NewsVault({ News_vault }) {
         src="https://datamares.org/wp-content/uploads/2024/09/newsVaulltIcon.webp"
         alt=""
       />
-      <div className="hidden min-h-[25vw] w-15 bg-[#c4cc2d] lg:block lg:w-[3.12vw] screen:w-15"></div>
+      <div className="hidden min-h-120 w-15 bg-[#c4cc2d] lg:block lg:w-[3.12vw] screen:w-15"></div>
       <div className="mx-2 w-11/12 pb-4 md:mx-auto screen:px-6">
         <h1 className="my-8 px-20 text-center font-myriad-condensed text-5xl leading-12 font-bold text-[#c4cc2d] uppercase transition-transform lg:my-[1.67vw] lg:text-[2.5vw] xl:text-[3rem] screen:my-8">
           {t('news_vault')}

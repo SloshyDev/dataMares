@@ -3,8 +3,8 @@ import Interviews from './Interviews';
 
 export default function RightSide() {
   return (
-    <section className="py-12 xl:mx-auto xl:w-[48%]">
-      <div className="mx-auto xl:w-11/12">
+    <section className="py-12 lg:mx-auto lg:w-[48%]">
+      <div className="lg:mx-auto lg:w-11/12">
         <Interviews />
       </div>
     </section>

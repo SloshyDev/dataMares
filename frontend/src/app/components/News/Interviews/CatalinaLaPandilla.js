@@ -8,39 +8,39 @@ export default function CatalinaLaPandilla() {
     <section className="my-4 rounded-2xl bg-linear-to-b from-[#19716e] to-[#12524f] text-white">
       <div
         style={{ backgroundImage: `url(/Graficos/FondoCDMX.svg)` }}
-        className="flex h-full w-full items-center bg-cover bg-bottom pt-8"
+        className="flex h-full w-full items-center justify-around bg-cover bg-bottom py-4 lg:pt-6"
       >
-        <div className="mx-2 flex">
+        <div className="mx-2 flex screen:w-full screen:justify-around">
           <div className="">
             <img
               width={187}
               height={272}
-              className="w-45"
+              className="w-38 lg:w-[9.38vw] screen:w-45"
               src="https://api.yokaicdmx.com/uploads/Catalina_En_La_Pandilla_33793ff69b.webp"
               alt=""
             />
           </div>
-          <div className="ml-3">
+          <div className="ml-6 lg:ml-[1.25vw] screen:ml-6">
             <div className="w-full">
-              <h1 className="font-myriad-condensed text-3xl leading-none font-black wide:text-[2.5rem] wide-screen:text-[2.5rem]">
+              <h1 className="font-myriad-condensed leading-none font-black lg:text-[2vw] screen:text-[2.5rem]">
                 Catalina López-Sagástegui
               </h1>
-              <p className="mt-2 flex items-center justify-between pb-4 text-3xl leading-none font-bold xl:pb-4 xl:text-xl wide:pb-0 wide:text-[1.3rem]">
+              <p className="mt-2 flex items-center justify-between font-myriad-condensed leading-none font-bold lg:text-[1.25vw] screen:text-2xl">
                 EN EL PROGRAMA DE RADIO
               </p>
-              <div className="mt-8 flex gap-8">
+              <div className="mt-5 flex lg:mt-[1vw] lg:gap-8 screen:mt-5">
                 <img
                   width={284}
                   height={225}
-                  className="m-auto h-auto w-38 rounded-md xl:block screen:w-45"
+                  className="m-auto hidden h-auto w-28 rounded-md lg:block lg:w-[9.84vw] screen:w-45"
                   src="https://api.yokaicdmx.com/uploads/La_pandilla_logo_d2365be503.webp"
                   alt=""
                 />
                 <div className="flex flex-col justify-center">
-                  <h2 className="md text-center text-xl font-bold text-[#669b4f] xl:text-lg screen:block screen:text-xl">
+                  <h2 className="md text-center font-bold text-[#669b4f] xl:text-lg screen:block screen:text-xl">
                     1 Y 2 DE FEBRERO 2025
                   </h2>
-                  <h1 className="mb-2 text-center text-2xl font-black text-white xl:text-sm wide:text-2xl screen:block">
+                  <h1 className="mb-2 text-center text-lg font-black text-white xl:text-sm wide:text-2xl screen:block">
                     ¡NO TE LO PIERDAS!
                   </h1>
                   <a

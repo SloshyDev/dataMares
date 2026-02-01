@@ -19,32 +19,40 @@ export default function DatamaresLaPandilla() {
         <div className="mx-2 justify-around lg:mx-2 lg:flex">
           <div className="flex">
             <img
-              className="h-fit w-28 lg:h-[7vw] lg:w-[7vw] screen:h-32 screen:w-32"
+              className="w-28 lg:h-[7vw] lg:w-[7vw] screen:h-32 screen:w-32"
               src="https://api.yokaicdmx.com/uploads/CATALINA_TEAM_96f6bae881.webp"
               alt=""
             />
             <div className="flex flex-col items-start justify-center pl-4 lg:pl-[.83vw] screen:pl-4">
-              <h1 className="text-[1.4vw] leading-none font-black text-white screen:text-2xl">CATALINA</h1>
-              <h2 className="text-[1vw] leading-none font-black text-white">LÓPEZ-SAGÁSTEGUI</h2>
+              <h1 className="text-3xl leading-none font-black text-white lg:text-[1.4vw] screen:text-2xl">CATALINA</h1>
+              <h2 className="leading-none font-black text-white lg:text-[1vw]">LÓPEZ-SAGÁSTEGUI</h2>
               <h3 className="mb-2 text-base leading-none font-black text-white lg:text-[.83vw] screen:text-base">
                 DIRECTORA GENERAL
               </h3>
-              <MediaButton type="listen" href="" />
+              <MediaButton
+                type="listen"
+                href="https://api.yokaicdmx.com/uploads/Audio_Catalina_1_6de1b846dc.mp3"
+                image="https://api.yokaicdmx.com/uploads/CATALINA_TEAM_96f6bae881.webp"
+              />
             </div>
           </div>
-          <div className="flex">
+          <div className="mt-4 flex lg:mt-0">
             <img
               className="w-28 lg:h-[7vw] lg:w-[7vw] screen:h-32 screen:w-32"
               src="https://api.yokaicdmx.com/uploads/LUIS_MIGUEL_TEAM_29149f9594.webp"
               alt=""
             />
             <div className="flex flex-col items-start justify-center pl-4 lg:pl-[.83vw] screen:pl-4">
-              <h1 className="text-[1.4vw] leading-none font-black text-white screen:text-2xl">LUIS MIGUEL</h1>
-              <h2 className="text-[1vw] leading-none font-black text-white">DE LA CRUZ</h2>
+              <h1 className="text-3xl leading-none font-black text-white lg:text-[1.4vw] screen:text-2xl">LUIS MIGUEL</h1>
+              <h2 className="leading-none font-black text-white lg:text-[1vw] screen:text-xl">DE LA CRUZ</h2>
               <h3 className="mb-2 text-base leading-none font-black text-white lg:text-[.83vw] screen:text-base">
                 DIRECTOR DE ARTE
               </h3>
-              <MediaButton type="listen" href="" />
+              <MediaButton
+                type="listen"
+                href="https://api.yokaicdmx.com/uploads/Audio_Luis_Miguel_b0150fd2bb.mp3"
+                image="https://api.yokaicdmx.com/uploads/LUIS_MIGUEL_TEAM_29149f9594.webp"
+              />
             </div>
           </div>
         </div>

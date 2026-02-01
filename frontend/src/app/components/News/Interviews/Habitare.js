@@ -30,7 +30,7 @@ export default function Habitare() {
                 ENTREVISTAS CON
                 <br />
                 dataMares
-                <MediaButton type="video" href="https://www.youtube.com/watch?v=BuPTrRV5jJM" />
+                <MediaButton type="video" href="https://www.radiopodcast.unam.mx/podcast/audio/42090" />
               </p>
             </div>
           </div>

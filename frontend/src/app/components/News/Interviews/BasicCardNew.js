@@ -22,7 +22,7 @@ export default function BasicCardNew({ title, subTitle, content, link, image, cl
         <p className="fon mt-2 block font-myriad-condensed text-lg leading-none lg:text-[1.56vw] wide:block screen:text-3xl">
           {content}
         </p>
-        <MediaButton className="mt-4 items-end" type="video" href={link} />
+        <MediaButton className="mt-4 items-start" type="video" href={link} />
       </div>
     </section>
   );

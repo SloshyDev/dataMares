@@ -1,6 +1,7 @@
 'use client';
 import MicIcon from '@/assets/Icons/MicIcon';
-import React from 'react';
+import React, { useState } from 'react';
+import VideoModal from '../Common/VideoModal';
 import { useTranslation } from 'react-i18next';
 import CatalinaRadioChapingo from './Interviews/CatalinaRadioChapingo';
 import Habitare from './Interviews/Habitare';
@@ -24,14 +25,14 @@ export default function Interviews() {
         <BasicCardNew
           title="LOS NIÑOS PREGUNTAN"
           content="¿Qué hay en las profunidades del océano?,¿cómo es que el cambio climatico está afectando a los mares y océanos?"
-          link="https://example.com"
+          link="https://fb.watch/ugh0s_uXga/"
           image="https://api.yokaicdmx.com/uploads/Los_ninos_pregunta_6ef2b5d9fa.webp"
           textLink="VIDEO"
         />
         <BasicCardNew
           title="DATAMARES EN LA UNAM"
           content="La directora de dataMares en conversación con la comunidad universitaria."
-          link="https://example.com"
+          link="https://www.youtube.com/watch?v=zOhxYEQnZOs"
           image="https://api.yokaicdmx.com/uploads/datamares_en_la_unam_8027617592.webp"
           textLink="VIDEO"
         />
@@ -40,7 +41,7 @@ export default function Interviews() {
           title="LA CIENCIA QUE SOMOS"
           subTitle="CONOCE LOS OCÉANOS. 07 DE JUNIO DE 2024"
           content="La directora de dataMares en conversación con la comunidad universitaria."
-          link="https://example.com"
+          link="https://www.youtube.com/watch?v=zOhxYEQnZOs"
           image="https://api.yokaicdmx.com/uploads/La_ciencia_que_somos_367a23432a.webp"
           textLink="VIDEO"
         />
@@ -48,12 +49,46 @@ export default function Interviews() {
           className="py-4"
           title="Podcast Radio UNAM"
           content="This content was originally taken from the official site of Radio UNAM. Our director talks about access to information and the efforts of dataMares."
-          link="https://example.com"
+          link="https://www.radiopodcast.unam.mx/podcast/audio/31273"
           image="https://api.yokaicdmx.com/uploads/Radio_Unam_81d190d87a.webp"
           textLink="LISTEN"
         />
         <CatalinaLaPandilla />
         <DatamaresLaPandilla />
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="">
+            {(() => {
+              const [open, setOpen] = useState(false);
+              const videoSrc = 'https://api.yokaicdmx.com/uploads/Solorzano_Entrevista_CLS_26_enero_2023_a6d0494320.mp4';
+              const imageSrc = 'https://api.yokaicdmx.com/uploads/Referente_fe24c970c1.webp';
+              return (
+                <>
+                  <img
+                    className="mx-auto rounded-2xl transition-transform duration-300 hover:scale-105"
+                    src={imageSrc}
+                    alt=""
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setOpen(true)}
+                  />
+                  <VideoModal src={videoSrc} open={open} onClose={() => setOpen(false)} />
+                </>
+              );
+            })()}
+          </div>
+          <div className="">
+            <a href="http://" className="flex gap-2" target="_blank" rel="noopener noreferrer">
+              <img
+                className="h-42 w-42 rounded-2xl lg:h-[10.5vw] lg:w-[10.5vw] screen:h-42 screen:w-42"
+                src="https://api.yokaicdmx.com/uploads/Hablame_de_ciencia_b562a01ab1.webp"
+                alt=""
+              />
+              <span className="text-sm lg:text-[.73vw] screen:text-[.88rem]">
+                HÁBLAME DE CIENCIA EPISODIO 50: MISTERIOS EN LOS OCÉANOS Sumérgete en una charla con Catalina López-Sagástegui.
+                Una plática sobre las criaturas marinas, el coral blanco y otros datos interesantes sobre los océanos.
+              </span>
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

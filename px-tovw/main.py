@@ -66,12 +66,13 @@ class PxToVwConverter(tk.Tk):
                 px = value
                 vw = (px / viewport) * 100
                 vw_450 = (px / 450) * 100
+                self.result_label.config(text=f"{vw:.2f}vw")
             else:
                 vw = value
                 px = (vw / 100) * viewport
                 vw_450 = (px / 450) * 100
+                self.result_label.config(text=f"{px:.2f}px")
             rem = px / 16
-            self.result_label.config(text=f"{vw:.2f}vw")
             self.result_rem_label.config(text=f"{rem:.2f}rem")
             self.result_vw_450_label.config(text=f"{vw_450:.2f}vw (450px)")
         except ValueError:

@@ -1,6 +1,7 @@
 import MicIcon from '@/assets/Icons/MicIcon';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import MediaButton from '../../Common/MediaButton';
 
 export default function CatalinaLaPandilla() {
   const { t } = useTranslation();
@@ -37,22 +38,13 @@ export default function CatalinaLaPandilla() {
                   alt=""
                 />
                 <div className="flex flex-col justify-center">
-                  <h2 className="md text-center font-bold text-[#669b4f] xl:text-lg screen:block screen:text-xl">
+                  <h2 className="md text-center font-bold text-[#669b4f] lg:text-[1vw] screen:block screen:text-xl">
                     1 Y 2 DE FEBRERO 2025
                   </h2>
-                  <h1 className="mb-2 text-center text-lg font-black text-white xl:text-sm wide:text-2xl screen:block">
+                  <h1 className="mb-2 text-center text-lg font-black text-white lg:text-[1.3vw] screen:text-2xl">
                     ¡NO TE LO PIERDAS!
                   </h1>
-                  <a
-                    href="https://www.youtube.com/watch?v=BuPTrRV5jJM"
-                    className="group flex"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="m-auto w-fit overflow-hidden rounded-2xl border-4 border-[#00302e] bg-linear-to-b from-[#267571] to-[#b9b532] px-6 py-1 font-myriad-condensed text-2xl font-bold text-white transition-colors duration-300 group-hover:from-[#b9b532] group-hover:to-[#267571] wide:text-[1.5rem] wide-screen:text-4xl">
-                      {t('listen')}
-                    </span>
-                  </a>
+                  <MediaButton type="listen" href="https://www.imer.mx/programas/ballenas-nacidas-en-aguas-mexicanas/" />
                 </div>
               </div>
             </div>

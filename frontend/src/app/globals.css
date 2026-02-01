@@ -65,5 +65,5 @@ body {
 }
 
 .button-media{
-   @apply text-white font-bold text-2xl px-4 border-2 py-1 lg:px-[1.67vw] lg:py-[.06vw] lg:text-[1.70vw] screen:px-8 screen:py-0 screen:text-4xl transition-colors duration-300 group-hover:from-[#b9b532] group-hover:to-[#267571] rounded-2xl lg:rounded-[1vw] lg:border-[.2vw] text-center font-myriad-condensed border-[#00302e] bg-linear-to-b from-[#267571] to-[#b9b532]
+   @apply text-white font-bold text-2xl px-4 border-2 py-1 lg:px-[1.67vw] lg:py-[.06vw] lg:text-[1.70vw] screen:px-8 screen:py-0 screen:border-4 screen:text-[1.8em] transition-colors duration-300 group-hover:from-[#b9b532] group-hover:to-[#267571] rounded-2xl lg:rounded-[1vw] lg:border-[.2vw] text-center font-myriad-condensed border-[#00302e] bg-linear-to-b from-[#267571] to-[#b9b532]
 }

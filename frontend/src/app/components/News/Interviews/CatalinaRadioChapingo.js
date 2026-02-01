@@ -1,3 +1,4 @@
+'use client';
 import MicIconV2 from '@/assets/Icons/MicIconV2';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,11 +16,10 @@ export default function CatalinaRadioChapingo() {
       </div>
       <div className="mx-2 text-white lg:mx-12">
         <h1 className="font-myriad-condensed text-3xl leading-none font-black lg:text-[1.88vw] screen:text-4xl">
-          Entrevista Radio Chapingo:
+          {t('radio_chapingo_title')}:
         </h1>
         <p className="font-myriad-condensed text-xl leading-none font-bold lg:text-[1.56vw] screen:text-3xl">
-          Catalina López-Sagástegui platica sobre los orígenes de dataMares y el quehacer de su labor en la divulgación de la
-          ciencia.
+          {t('radio_chapingo_sub_title')}
         </p>
       </div>
     </section>

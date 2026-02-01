@@ -1,5 +1,5 @@
 'use client';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import MicIcon from '@/assets/Icons/MicIcon';
 import React from 'react';
 import MediaButton from '../../Common/MediaButton';
@@ -24,12 +24,10 @@ export default function Habitare() {
             />
             <div className="w-full">
               <h1 className="font-myriad-condensed text-xl leading-none font-black lg:text-[1.88vw] screen:text-4xl">
-                CREATIVIDAD EN UNA INFOGRAFÍA
+                {t('habitare_title')}
               </h1>
               <p className="mt-2 flex items-center justify-between pb-4 font-myriad-condensed text-lg leading-none font-black text-[#d0d001] lg:text-[1.56vw] xl:pb-4 wide:pb-0 screen:text-3xl">
-                ENTREVISTAS CON
-                <br />
-                dataMares
+                <Trans i18nKey="habitare_sub_title" />
                 <MediaButton type="video" href="https://www.radiopodcast.unam.mx/podcast/audio/42090" />
               </p>
             </div>

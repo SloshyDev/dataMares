@@ -11,7 +11,7 @@ export default async function page({ params }) {
   const { t, resources } = await initTranslations(locale, ['news']);
   const i18nNamespace = ['news'];
 
-  const { Banners, News_vault, Dispatch, PublicationsPromo } = await getNewsDataGraphQL(locale);
+  const { Banners, News_vault, Dispatch, PublicationsPromo, dataPromo } = await getNewsDataGraphQL(locale);
 
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
@@ -20,7 +20,7 @@ export default async function page({ params }) {
         <section className="justify-center px-2 lg:flex lg:px-0">
           <LeftSide News_vault={News_vault} Dispatch={Dispatch} PublicationsPromo={PublicationsPromo} />
           <div className="mx-2 w-2 bg-[#00302e]"></div>
-          <RightSide />
+          <RightSide dataPromo={dataPromo} />
         </section>
       </main>
     </TranslationsProvider>

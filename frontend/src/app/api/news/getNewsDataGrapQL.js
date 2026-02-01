@@ -50,6 +50,16 @@ export default async function getNewsDataGraphQL(localeParam) {
           Title
           TypeOfLink
         }
+        dataPromo {
+          Image {
+            url
+            width
+            height
+          }
+          Link
+          Title
+          TypeOfLink
+        }
         PublicationsPromo {
           Content
           Title
@@ -81,6 +91,7 @@ export default async function getNewsDataGraphQL(localeParam) {
     News_vault: data.newsGallery?.News_vault || [],
     Dispatch: data.newsGallery?.Dispatch || {},
     PublicationsPromo: data.newsGallery?.PublicationsPromo || [],
+    dataPromo: data.newsGallery?.dataPromo || {},
   };
 
   return result;

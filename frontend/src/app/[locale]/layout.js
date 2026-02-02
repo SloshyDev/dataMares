@@ -153,11 +153,12 @@ export default async function RootLayout({ children, params }) {
       </head>
       <body className={`antialiased`}>
         <noscript>
+          {/* eslint-disable-next-line react/no-danger */}
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5KPNFHQP"
             height="0"
             width="0"
-            style="display:none;visibility:hidden"
+            style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
 

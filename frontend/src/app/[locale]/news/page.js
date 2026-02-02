@@ -1,5 +1,6 @@
 import getNewsDataGraphQL from '@/app/api/news/getNewsDataGrapQL';
 import BannersSection from '@/app/components/News/Banners';
+import BiodiversityStudies from '@/app/components/News/BiodiversityStudies';
 import LeftSide from '@/app/components/News/LeftSide';
 import RightSide from '@/app/components/News/RightSide';
 import TranslationsProvider from '@/app/components/TranslationsProvides';
@@ -17,11 +18,12 @@ export default async function page({ params }) {
     <TranslationsProvider resources={resources} locale={locale} namespaces={[i18nNamespace]}>
       <main className="mx-auto mb-5 min-h-screen max-w-[2048px]">
         <BannersSection Banners={Banners} />
-        <section className="justify-center px-2 lg:flex lg:px-0">
+        <section className="mb-2 justify-center px-2 lg:mb-8 lg:flex lg:px-0">
           <LeftSide News_vault={News_vault} Dispatch={Dispatch} PublicationsPromo={PublicationsPromo} />
           <div className="mx-2 w-2 bg-[#00302e]"></div>
           <RightSide dataPromo={dataPromo} />
         </section>
+        <BiodiversityStudies />
       </main>
     </TranslationsProvider>
   );

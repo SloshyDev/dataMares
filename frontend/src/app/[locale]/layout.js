@@ -1,4 +1,5 @@
 import '@/app/globals.css';
+import Script from 'next/script';
 import Header from '../components/Header/Header';
 import TranslationsProvider from '../components/TranslationsProvides';
 import initTranslations from '../i18n';
@@ -115,6 +116,15 @@ export default async function RootLayout({ children, params }) {
   return (
     <html suppressHydrationWarning lang={locale}>
       <head>
+        <Script id="gtm-script" strategy="beforeInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5KPNFHQP');
+          `}
+        </Script>
         <link rel="stylesheet" href="https://use.typekit.net/fix5wnb.css"></link>
         <script
           type="application/ld+json"
@@ -142,6 +152,15 @@ export default async function RootLayout({ children, params }) {
         />
       </head>
       <body className={`antialiased`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5KPNFHQP"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          ></iframe>
+        </noscript>
+
         <Providers>
           <TranslationsProvider resources={resources} locale={locale} namespaces={['header', 'not-found']}>
             <section className="mx-auto flex min-h-screen flex-col justify-between">
